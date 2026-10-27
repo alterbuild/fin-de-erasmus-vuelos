@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fin de Erasmus: vuelos a Atenas, Praga, Marrakech y Budapest</title>
+  <meta name="description" content="Compara vuelos directos desde Lille y Charleroi a Atenas, Praga, Marrakech y Budapest entre el 9 y el 18 de diciembre de 2026.">
+  <meta name="theme-color" content="#E7ECF4">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='16' height='16' fill='%231F4FD8'/%3E%3Crect x='16' width='16' height='16' fill='%238F1D3A'/%3E%3Crect y='16' width='16' height='16' fill='%23F2A900'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%230B7A75'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#resultados">Ir a los resultados</a>
+
+  <header class="hero wrap">
+    <h1>Fin de Erasmus: ¿a dónde volamos?</h1>
+    <p class="hero__intro">Vuelos directos desde Lille y Charleroi entre el 9 y el 18 de diciembre de 2026. Elige tus días y compara los cuatro destinos.</p>
+  </header>
+
+  <main>
+    <section class="when wrap" aria-labelledby="when-title">
+      <h2 id="when-title" class="section-title">Elige tus días</h2>
+      <ul class="ribbon" id="ribbon"></ul>
+      <div class="when__foot">
+        <p class="when__status" id="range-status" aria-live="polite"></p>
+        <button class="link-btn" type="button" id="range-reset" data-action="clear-range" hidden>Todo el periodo</button>
+      </div>
+      <p class="legend" id="legend"></p>
+    </section>
+
+    <section class="filters wrap" aria-label="Filtros">
+      <div class="filters__box">
+        <div class="field">
+          <span class="field__label" id="lbl-origin">Salgo desde</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lbl-origin" id="origin">
+            <button type="button" role="radio" data-origin="both" aria-checked="true">Lille y Charleroi</button>
+            <button type="button" role="radio" data-origin="LIL" aria-checked="false">Solo Lille</button>
+            <button type="button" role="radio" data-origin="CRL" aria-checked="false">Solo Charleroi</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field__label" id="lbl-dur">Duración del viaje</span>
+          <div class="seg seg--multi" role="group" aria-labelledby="lbl-dur" id="durations">
+            <button type="button" data-dur="4" aria-pressed="true">4 días</button>
+            <button type="button" data-dur="5" aria-pressed="true">5 días</button>
+            <button type="button" data-dur="6" aria-pressed="false">6 días o más</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field__label" id="lbl-people">Personas</span>
+          <div class="step" role="group" aria-labelledby="lbl-people">
+            <button type="button" data-action="people-minus" aria-label="Una persona menos">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+            </button>
+            <output id="people" aria-live="polite">10</output>
+            <button type="button" data-action="people-plus" aria-label="Una persona más">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="field field--switch">
+          <button type="button" class="switch" role="switch" aria-checked="true" id="bus" aria-describedby="bus-help">
+            <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
+            <span class="switch__text">Sumar el autobús a Charleroi</span>
+          </button>
+          <span class="field__help" id="bus-help">Unos 45 € por persona, ida y vuelta.</span>
+        </div>
+      </div>
+      <p class="alert" id="group-note" hidden>Con 10 personas, easyJet trata la reserva como grupo y las tarifas pueden salir más caras que las de internet. En Ryanair y Wizz Air confirma cuántos pasajeros admite cada reserva.</p>
+    </section>
+
+    <section class="summary wrap" id="resultados" aria-label="Resumen">
+      <div class="summary__col">
+        <div class="summary__head">
+          <h2 class="section-title">Lo que cuesta ir</h2>
+          <button class="link-btn" type="button" data-action="copy">Copiar resumen</button>
+        </div>
+        <p class="summary__note" id="bars-note"></p>
+        <ul class="bars" id="bars"></ul>
+      </div>
+      <div class="summary__col">
+        <h2 class="section-title">Qué tiempo hace</h2>
+        <p class="summary__note">Temperaturas medias de diciembre, no una previsión.</p>
+        <ul class="temps" id="temps"></ul>
+      </div>
+    </section>
+
+    <section class="wrap" aria-label="Destinos">
+      <div class="posters" id="posters"></div>
+    </section>
+
+    <section class="notes wrap" aria-labelledby="notes-title">
+      <h2 id="notes-title" class="section-title">Antes de reservar</h2>
+      <ul class="notes__list">
+        <li>Precios de Google Flights consultados el <span id="checked"></span>, para 1 adulto, ida y vuelta y solo vuelos directos. Cambian a diario.</li>
+        <li>No incluyen maleta de bodega ni mochila grande. Casi todas las horas son de la ida: confirma la vuelta al reservar.</li>
+        <li>El autobús Lille a Charleroi (FlixBus o Flibco, unas 1 h 35 min) se estima en 45 € por persona, ida y vuelta.</li>
+        <li>Ryanair ha anunciado recortes de rutas en Bélgica este invierno. Confirma que tu vuelo sigue en su web.</li>
+        <li>Budapest del 14 al 18 de diciembre no se pudo consultar. Desde Lille no hay vuelo directo a Atenas ni a Budapest en esas fechas.</li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
