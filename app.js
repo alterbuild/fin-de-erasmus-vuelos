@@ -20,19 +20,23 @@
     durs: new Set([4, 5]),
     people: 10,
     bus: true,
+    pace: "normal",
+    view: "trip",
     picked: {},
     open: {},
+    openBreak: {},
     last: {},
     ready: false
   };
 
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-  const eur = (n) => n + " €";
+  const eur = (n) => Math.round(n) + " €";
   const day = (n) => T.days[n - 9];
   const short = (n) => day(n).w + " " + n;
   const pad = (n) => String(n).padStart(2, "0");
   const minus = (n) => String(n).replace("-", "−");
+  const plural = (n, one, many) => n + " " + (n === 1 ? one : many);
 
   const ICON = {
     clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
@@ -76,10 +80,51 @@
     return list.find((o) => o.id === state.picked[d]) || list[0];
   }
 
+  /* Coste estimado del viaje, por persona */
+  function tripCost(o) {
+    const c = T.dest[o.dest].cost;
+    const nights = o.ret - o.out;
+    const days = nights + 1;
+    const food = c.food[state.pace];
+    const rows = [{ k: "Vuelo", v: o.price }];
+    if (o.from === "CRL" && state.bus) rows.push({ k: "Autobús Lille a Charleroi", v: BUS });
+    rows.push({ k: "Alojamiento", d: plural(nights, "noche", "noches") + " a " + eur(c.lodging), v: c.lodging * nights });
+    rows.push({ k: "Comida y salidas", d: plural(days, "día", "días") + " a " + eur(food), v: food * days });
+    rows.push({ k: "Transporte en la ciudad", d: plural(days, "día", "días") + " a " + eur(c.local), v: c.local * days });
+    rows.push({ k: "Del aeropuerto al centro y vuelta", v: c.transfer });
+    rows.push({ k: "Entradas", d: c.sightsNote, v: c.sights });
+    return { rows: rows, total: rows.reduce((s, r) => s + r.v, 0) };
+  }
+
+  const metric = (o) => (state.view === "trip" ? tripCost(o).total : eff(o));
+
+  /* Enlaces */
+
   function flightsUrl(o) {
     const q = "Nonstop flights from " + o.from + " to " + T.dest[o.dest].code +
       " on 2026-12-" + pad(o.out) + " through 2026-12-" + pad(o.ret);
     return "https://www.google.com/travel/flights?q=" + encodeURIComponent(q) + "&curr=EUR&hl=es";
+  }
+
+  // Abre la web de la aerolínea con ruta, fechas y personas ya puestas.
+  function buyUrl(o) {
+    const code = T.dest[o.dest].code;
+    const n = state.people;
+    const a = "2026-12-" + pad(o.out);
+    const b = "2026-12-" + pad(o.ret);
+    if (o.airline === "easyJet") {
+      return "https://www.easyjet.com/deeplink?lang=ES&dep=" + o.from + "&dest=" + code +
+        "&dd=" + a + "&rd=" + b + "&apax=" + n + "&cpax=0&ipax=0&isOneWay=off";
+    }
+    if (o.airline === "Ryanair") {
+      return "https://www.ryanair.com/es/es/trip/flights/select?adults=" + n +
+        "&teens=0&children=0&infants=0&dateOut=" + a + "&dateIn=" + b +
+        "&isConnectedFlight=false&discount=0&promoCode=&isReturn=true&originIata=" + o.from +
+        "&destinationIata=" + code + "&tpAdults=" + n + "&tpTeens=0&tpChildren=0&tpInfants=0" +
+        "&tpStartDate=" + a + "&tpEndDate=" + b + "&tpDiscount=0&tpPromoCode=&tpOriginIata=" + o.from +
+        "&tpDestinationIata=" + code;
+    }
+    return "https://www.wizzair.com/es-es/booking/select-flight/" + o.from + "/" + code + "/" + a + "/" + b + "/" + n + "/0/0/null";
   }
 
   function arrivalTag(o) {
@@ -123,7 +168,7 @@
       (d) =>
         '<li class="bar-row" id="bar-' + d + '" style="--c:' + COLOR[d] + '">' +
         '<span class="bar-row__name">' + T.dest[d].name + "</span>" +
-        '<span class="bar-track"><span class="bar-fill"></span></span>' +
+        '<span class="bar-track"><span class="bar-fill"><span class="bar-fill__flight"></span></span></span>' +
         '<span class="bar-row__val"><span class="bar-price"></span><span class="bar-sub"></span></span></li>'
     ).join("");
   }
@@ -179,7 +224,7 @@
     if (s === null) return "Mostrando todo el periodo. Toca tu día de ida y luego el de vuelta para acotar.";
     if (e === null) return "Ida el " + day(s).long + " " + s + ". Ahora toca el día de vuelta.";
     const n = e - s;
-    return "Del " + day(s).long + " " + s + " al " + day(e).long + " " + e + " de diciembre (" + n + " " + (n === 1 ? "noche" : "noches") + ").";
+    return "Del " + day(s).long + " " + s + " al " + day(e).long + " " + e + " de diciembre (" + plural(n, "noche", "noches") + ").";
   }
 
   function updateRibbon() {
@@ -201,12 +246,18 @@
     });
   }
 
-  function updateControls() {
-    $$("#origin [role=radio]").forEach((b) => {
-      const on = b.dataset.origin === state.origin;
+  function setRadios(sel, key, value) {
+    $$(sel + " [role=radio]").forEach((b) => {
+      const on = b.dataset[key] === value;
       b.setAttribute("aria-checked", String(on));
       b.tabIndex = on ? 0 : -1;
     });
+  }
+
+  function updateControls() {
+    setRadios("#origin", "origin", state.origin);
+    setRadios("#pace", "pace", state.pace);
+    setRadios("#view", "view", state.view);
     $$("#durations button").forEach((b) => b.setAttribute("aria-pressed", String(state.durs.has(Number(b.dataset.dur)))));
     $("#people").textContent = state.people;
     $("[data-action=people-minus]").disabled = state.people <= 1;
@@ -217,6 +268,42 @@
     $("#range-reset").hidden = state.start === null;
   }
 
+  function tripHTML(d, o) {
+    const t = tripCost(o);
+    const c = T.dest[d].cost;
+    const rows = t.rows
+      .map(
+        (r) =>
+          '<div class="costs__row"><dt>' + r.k + (r.d ? "<small>" + r.d + "</small>" : "") + "</dt><dd>" + eur(r.v) + "</dd></div>"
+      )
+      .join("");
+    return (
+      '<div class="trip">' +
+      '<p class="trip__label">Viaje completo, estimado</p>' +
+      '<p class="trip__num">' + eur(t.total) + "<span> por persona</span></p>" +
+      (state.people > 1 ? '<p class="trip__group">Para ' + state.people + " personas: " + eur(t.total * state.people) + "</p>" : "") +
+      '<details class="breakdown" data-dest="' + d + '"' + (state.openBreak[d] ? " open" : "") + ">" +
+      "<summary>Ver el desglose</summary>" +
+      '<dl class="costs">' + rows +
+      '<div class="costs__row costs__row--total"><dt>Total por persona</dt><dd>' + eur(t.total) + "</dd></div></dl>" +
+      '<p class="costs__note">Alojamiento: apartamentos para 10, de ' + c.lodgingRange[0] + " a " + c.lodgingRange[1] +
+      " € por persona y noche. Traslado: " + c.transferNote + ".</p>" +
+      "</details></div>"
+    );
+  }
+
+  function buyHTML(d, o) {
+    const m = T.dest[d];
+    const what = m.name + " del " + o.out + " al " + o.ret;
+    return (
+      '<a class="btn" href="' + buyUrl(o) + '" target="_blank" rel="noopener" aria-label="Comprar ' + what + " en " + o.airline + ', se abre en otra pestaña">' +
+      "Comprar en " + o.airline + ICON.out + "</a>" +
+      '<a class="btn btn--ghost" href="' + flightsUrl(o) + '" target="_blank" rel="noopener" aria-label="Ver ' + what + ' en Google Flights, se abre en otra pestaña">' +
+      "Ver en Google Flights" + ICON.out + "</a>" +
+      '<p class="buyhint">Se abre ' + o.airline + " con la ruta, las fechas y " + plural(state.people, "persona", "personas") + " ya puestas. Ahí eliges la hora.</p>"
+    );
+  }
+
   function ticketHTML(d, o, isNew) {
     const m = T.dest[d];
     const crl = o.from === "CRL";
@@ -225,7 +312,7 @@
     const tags = ['<li class="tag">' + (crl ? "Desde Charleroi" : "Directo desde Lille") + "</li>"];
     const at = arrivalTag(o);
     if (at) tags.push('<li class="tag ' + at.c + '">' + at.t + "</li>");
-    if (state.people >= 10 && o.airline === "easyJet") tags.push('<li class="tag tag--warn">Precio de grupo por confirmar</li>');
+    if (state.people >= 10 && o.airline === "easyJet") tags.push('<li class="tag tag--warn">Reserva de grupo</li>');
 
     let time = "Hora de ida por confirmar.";
     if (o.dep) time = "Ida de " + o.dep + " a " + o.arr + (o.next ? " del día siguiente" : "") + ".";
@@ -242,15 +329,16 @@
       '<div class="route" role="img" aria-label="De ' + T.origins[o.from] + " a " + m.name + '">' +
       "<span>" + o.from + '</span><span class="route__line">' + ICON.plane + "</span><span>" + m.code + "</span></div>" +
       '<p class="ticket__dates">' + short(o.out) + " dic a " + short(o.ret) + " dic</p>" +
-      '<p class="ticket__meta">' + nights + " noches con " + o.airline + ". " + time + "</p>" +
+      '<p class="ticket__meta">' + plural(nights, "noche", "noches") + " con " + o.airline + ". " + time + "</p>" +
       '<ul class="tags">' + tags.join("") + "</ul>" +
       strip(o) +
       "</div>" +
       '<div class="ticket__stub">' +
-      '<div class="price"><span class="price__num">' + eur(price) + '</span><span class="price__unit">por persona</span></div>' +
+      '<div class="price"><span class="price__num">' + eur(price) + '</span><span class="price__unit">el vuelo, por persona</span></div>' +
       '<p class="price__split">' + split + "</p>" +
-      (state.people > 1 ? '<p class="price__total">' + state.people + " personas: " + eur(price * state.people) + "</p>" : "") +
-      '<a class="btn" href="' + flightsUrl(o) + '" target="_blank" rel="noopener" aria-label="Ver ' + m.name + " del " + o.out + " al " + o.ret + ' en Google Flights, se abre en otra pestaña">Ver en Google Flights' + ICON.out + "</a>" +
+      (state.people > 1 ? '<p class="price__total">Vuelos para ' + state.people + ": " + eur(price * state.people) + "</p>" : "") +
+      tripHTML(d, o) +
+      buyHTML(d, o) +
       "</div></div>"
     );
   }
@@ -261,7 +349,7 @@
         (o) =>
           '<button type="button" class="alt" data-dest="' + d + '" data-opt="' + o.id + '" aria-pressed="' + (o.id === cur.id) + '">' +
           '<span class="alt__dates">' + short(o.out) + " a " + short(o.ret) + "</span>" +
-          '<span class="alt__price">' + eur(eff(o)) + "</span>" +
+          '<span class="alt__price">' + eur(metric(o)) + "</span>" +
           '<span class="alt__sub">' + o.airline + ", desde " + T.origins[o.from] + (o.dep ? ", ida " + o.dep : "") + "</span>" +
           strip(o) +
           "</button>"
@@ -302,24 +390,31 @@
   }
 
   function renderBars() {
+    const trip = state.view === "trip";
     const rows = ORDER.map((d) => ({ d: d, o: chosen(d) }));
-    const max = Math.max.apply(null, [150].concat(rows.filter((r) => r.o).map((r) => eff(r.o)))) * 1.05;
+    const vals = rows.filter((r) => r.o).map((r) => metric(r.o));
+    const max = Math.max.apply(null, [trip ? 300 : 150].concat(vals)) * 1.04;
     rows
       .slice()
-      .sort((a, b) => (a.o && b.o ? eff(a.o) - eff(b.o) : a.o ? -1 : b.o ? 1 : 0))
+      .sort((a, b) => (a.o && b.o ? metric(a.o) - metric(b.o) : a.o ? -1 : b.o ? 1 : 0))
       .forEach((r, i) => {
         const li = $("#bar-" + r.d);
         li.style.setProperty("--order", i);
         li.classList.toggle("is-empty", !r.o);
-        $(".bar-fill", li).style.setProperty("--w", r.o ? (eff(r.o) / max) * 100 + "%" : "0%");
-        $(".bar-price", li).textContent = r.o ? eur(eff(r.o)) : "Sin vuelo";
+        $(".bar-fill", li).style.setProperty("--w", r.o ? (metric(r.o) / max) * 100 + "%" : "0%");
+        $(".bar-fill__flight", li).style.setProperty("--fw", r.o && trip ? (eff(r.o) / metric(r.o)) * 100 + "%" : "100%");
+        $(".bar-price", li).textContent = r.o ? eur(metric(r.o)) : "Sin vuelo";
         $(".bar-sub", li).textContent = r.o
-          ? r.o.out + " a " + r.o.ret + " dic, " + T.origins[r.o.from]
+          ? trip
+            ? plural(r.o.ret - r.o.out, "noche", "noches") + ", vuelo " + eur(eff(r.o)) + " desde " + T.origins[r.o.from]
+            : r.o.out + " a " + r.o.ret + " dic, " + T.origins[r.o.from]
           : "directo con estos filtros";
       });
-    $("#bars-note").textContent =
-      "Por persona, ida y vuelta" + (state.bus ? ", con el autobús a Charleroi incluido" : "") +
-      ". Cada destino muestra la fecha que elijas, por defecto la más barata.";
+    $("#bars-note").textContent = trip
+      ? "Por persona: vuelo, alojamiento, comida, transporte y entradas. La parte fuerte de cada barra es el vuelo." +
+        (state.bus ? " Charleroi incluye el autobús." : "")
+      : "Solo el vuelo, por persona, ida y vuelta" + (state.bus ? ", con el autobús a Charleroi incluido" : "") +
+        ". Cada destino muestra la fecha que elijas, por defecto la más barata.";
   }
 
   function update() {
@@ -346,19 +441,20 @@
 
   function summaryText() {
     const lines = [
-      "Fin de Erasmus. Vuelos directos para " + state.people + (state.people === 1 ? " persona" : " personas") +
-        ", precio por persona, ida y vuelta" + (state.bus ? " (Charleroi incluye " + BUS + " € de autobús)" : "") + ":"
+      "Fin de Erasmus. Vuelos directos y coste estimado del viaje, por persona (" + plural(state.people, "persona", "personas") +
+        ", comida y salidas en ritmo " + state.pace + (state.bus ? ", Charleroi con " + BUS + " € de autobús" : "") + "):"
     ];
     ORDER.forEach((d) => {
       const o = chosen(d);
       const n = T.dest[d].name;
       lines.push(
         o
-          ? n + ": " + o.out + " a " + o.ret + " dic, " + eff(o) + " € (" + T.origins[o.from] + ", " + o.airline + ")"
+          ? n + ": " + o.out + " a " + o.ret + " dic, vuelo " + eff(o) + " €, viaje completo unos " + Math.round(tripCost(o).total) +
+            " € (" + T.origins[o.from] + ", " + o.airline + ")"
           : n + ": sin vuelo directo con estos filtros"
       );
     });
-    lines.push("Precios de Google Flights del " + T.checked + ". Pueden cambiar.");
+    lines.push("Precios de Google Flights del " + T.checked + ". Son estimaciones y pueden cambiar.");
     if (/^https?:/.test(location.href)) lines.push(location.href.split("#")[0]);
     return lines.join("\n");
   }
@@ -404,6 +500,14 @@
       state.picked = {};
       return update();
     }
+    if (t.dataset.pace) {
+      state.pace = t.dataset.pace;
+      return update();
+    }
+    if (t.dataset.view) {
+      state.view = t.dataset.view;
+      return update();
+    }
     if (t.dataset.dur) {
       const k = Number(t.dataset.dur);
       state.durs.has(k) ? state.durs.delete(k) : state.durs.add(k);
@@ -437,24 +541,31 @@
     }
   });
 
-  // Recuerda si "Otras fechas" está abierto en cada destino.
+  // Recuerda qué desplegables están abiertos en cada destino.
   document.addEventListener("toggle", (e) => {
-    const d = e.target.closest && e.target.closest("details.more");
-    if (d) state.open[d.dataset.dest] = d.open;
+    const el = e.target;
+    if (!el.closest) return;
+    const more = el.closest("details.more");
+    if (more) state.open[more.dataset.dest] = more.open;
+    const br = el.closest("details.breakdown");
+    if (br) state.openBreak[br.dataset.dest] = br.open;
   }, true);
 
-  $("#origin").addEventListener("keydown", (e) => {
-    const keys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
-    if (!keys.includes(e.key)) return;
-    const btns = $$("[role=radio]", e.currentTarget);
-    const i = btns.findIndex((b) => b.getAttribute("aria-checked") === "true");
-    const back = e.key === "ArrowLeft" || e.key === "ArrowUp";
-    const n = (i + (back ? -1 : 1) + btns.length) % btns.length;
-    state.origin = btns[n].dataset.origin;
-    state.picked = {};
-    update();
-    btns[n].focus();
-    e.preventDefault();
+  // Flechas del teclado dentro de los grupos de opciones.
+  [["#origin", "origin"], ["#pace", "pace"], ["#view", "view"]].forEach((pair) => {
+    $(pair[0]).addEventListener("keydown", (e) => {
+      const keys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
+      if (!keys.includes(e.key)) return;
+      const btns = $$("[role=radio]", e.currentTarget);
+      const i = btns.findIndex((b) => b.getAttribute("aria-checked") === "true");
+      const back = e.key === "ArrowLeft" || e.key === "ArrowUp";
+      const n = (i + (back ? -1 : 1) + btns.length) % btns.length;
+      state[pair[1]] = btns[n].dataset[pair[1]];
+      if (pair[1] === "origin") state.picked = {};
+      update();
+      btns[n].focus();
+      e.preventDefault();
+    });
   });
 
   /* Arranque */

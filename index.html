@@ -65,6 +65,14 @@
           </div>
         </div>
 
+        <div class="field">
+          <span class="field__label" id="lbl-pace">Comida y salidas</span>
+          <div class="seg" role="radiogroup" aria-labelledby="lbl-pace" id="pace">
+            <button type="button" role="radio" data-pace="ajustado" aria-checked="false">Ajustado</button>
+            <button type="button" role="radio" data-pace="normal" aria-checked="true">Normal</button>
+          </div>
+        </div>
+
         <div class="field field--switch">
           <button type="button" class="switch" role="switch" aria-checked="true" id="bus" aria-describedby="bus-help">
             <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
@@ -73,7 +81,7 @@
           <span class="field__help" id="bus-help">Unos 45 € por persona, ida y vuelta.</span>
         </div>
       </div>
-      <p class="alert" id="group-note" hidden>Con 10 personas, easyJet trata la reserva como grupo y las tarifas pueden salir más caras que las de internet. En Ryanair y Wizz Air confirma cuántos pasajeros admite cada reserva.</p>
+      <p class="alert" id="group-note" hidden>Con 10 personas, easyJet trata la reserva como grupo. Al comprobarlo hoy, Praga salía a 55,29 € por persona (29,30 € la ida y 25,99 € la vuelta) en lugar de 54,94 €. En Ryanair, con 10 personas la tarifa más barata se agota antes: la ida a Budapest del 13 pasó de 29,99 € a 30,99 €.</p>
     </section>
 
     <section class="summary wrap" id="resultados" aria-label="Resumen">
@@ -81,6 +89,10 @@
         <div class="summary__head">
           <h2 class="section-title">Lo que cuesta ir</h2>
           <button class="link-btn" type="button" data-action="copy">Copiar resumen</button>
+        </div>
+        <div class="seg seg--small" role="radiogroup" aria-label="Qué precio comparar" id="view">
+          <button type="button" role="radio" data-view="trip" aria-checked="true">Viaje completo</button>
+          <button type="button" role="radio" data-view="flight" aria-checked="false">Solo el vuelo</button>
         </div>
         <p class="summary__note" id="bars-note"></p>
         <ul class="bars" id="bars"></ul>
@@ -103,6 +115,9 @@
         <li>No incluyen maleta de bodega ni mochila grande. Casi todas las horas son de la ida: confirma la vuelta al reservar.</li>
         <li>El autobús Lille a Charleroi (FlixBus o Flibco, unas 1 h 35 min) se estima en 45 € por persona, ida y vuelta.</li>
         <li>Ryanair ha anunciado recortes de rutas en Bélgica este invierno. Confirma que tu vuelo sigue en su web.</li>
+        <li>Los botones de compra abren la web de la aerolínea con la ruta, las fechas y las personas ya puestas. Ahí eliges la hora. El de Wizz Air abre su buscador, pero en mi prueba no llegó a mostrar vuelos: si pasa, repite la búsqueda en su web.</li>
+        <li>El viaje completo es una estimación por persona. Alojamiento: media de apartamentos de Airbnb para 10 con 10 camas o más (en Praga confirmé camas individuales; en el resto, revisa el tipo de cama). Comida: precios de Numbeo con un 25 % más para zonas turísticas. Entradas: la atracción principal más 10 € de otra visita.</li>
+        <li>No incluye tasas turísticas (de 1 a 3 € por persona y noche), compras, fiesta ni seguro de viaje.</li>
         <li>Budapest del 14 al 18 de diciembre no se pudo consultar. Desde Lille no hay vuelo directo a Atenas ni a Budapest en esas fechas.</li>
       </ul>
     </section>

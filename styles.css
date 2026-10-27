@@ -416,9 +416,23 @@ svg { display: block; }
   width: var(--w, 0%);
   min-width: 0;
   border-radius: 999px;
+  background: rgba(16, 27, 61, 0.14);
+  background: color-mix(in srgb, var(--c) 40%, white);
+  overflow: hidden;
+  transition: width 0.7s var(--ease);
+}
+
+.bar-fill__flight {
+  display: block;
+  height: 100%;
+  width: var(--fw, 100%);
+  border-radius: 999px;
   background: var(--c);
   transition: width 0.7s var(--ease);
 }
+
+.seg--small { margin: 0 0 16px; }
+.seg--small button { padding: 0.4rem 0.9rem; min-height: 38px; font-size: 0.92rem; }
 
 .bar-row.is-empty .bar-track {
   background: none;
@@ -738,6 +752,83 @@ svg { display: block; }
 .btn:hover { background: #24336b; }
 .btn:active { transform: scale(0.98); }
 .btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+.btn--ghost {
+  margin-top: 8px;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.btn--ghost:hover { background: var(--paper); }
+
+.buyhint { margin: 10px 2px 0; font-size: 0.82rem; color: var(--ink-soft); }
+
+/* Viaje completo */
+
+.trip {
+  margin-top: 12px;
+  padding: 12px 12px 4px;
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.trip__label { margin: 0; font-size: 0.88rem; font-weight: 700; color: var(--ink-soft); }
+
+.trip__num {
+  margin: 2px 0 0;
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.05;
+  font-stretch: var(--display-stretch);
+  font-variation-settings: "wdth" 75;
+}
+.trip__num span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-variation-settings: "wdth" 100;
+  color: var(--ink-soft);
+}
+
+.trip__group { margin: 2px 0 0; font-size: 0.9rem; font-weight: 700; }
+
+.breakdown { margin-top: 6px; }
+.breakdown summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.breakdown summary::-webkit-details-marker { display: none; }
+.breakdown summary::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2.5px solid currentColor;
+  border-bottom: 2.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.25s var(--ease);
+}
+.breakdown[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+
+.costs { margin: 0; padding-bottom: 6px; }
+.costs__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+.costs__row dt { font-weight: 600; }
+.costs__row dt small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--ink-soft); }
+.costs__row dd { margin: 0; font-weight: 800; white-space: nowrap; }
+.costs__row--total { border-top: 2px solid var(--ink); font-size: 1rem; }
+.costs__note { margin: 0 0 10px; font-size: 0.8rem; color: var(--ink-soft); }
 
 .stamp {
   display: inline-block;

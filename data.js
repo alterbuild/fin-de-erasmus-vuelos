@@ -24,25 +24,53 @@ window.TRIP = {
       name: "Atenas", country: "Grecia", code: "ATH",
       flight: "3 h 10 min", hi: 14, lo: 8, sky: "cloud",
       skyText: "Nubes y algún chubasco",
-      vibe: "Acrópolis, Plaka y el Ágora al aire libre, con unos 14 grados."
+      vibe: "Acrópolis, Plaka y el Ágora al aire libre, con unos 14 grados.",
+      cost: {
+        lodging: 32, lodgingRange: [26, 38],
+        food: { ajustado: 42, normal: 72 },
+        local: 4,
+        transfer: 16, transferNote: "Metro del aeropuerto, 16 € ida y vuelta",
+        sights: 40, sightsNote: "Acrópolis (30 €) y otra visita (10 €)"
+      }
     },
     praga: {
       name: "Praga", country: "Chequia", code: "PRG",
       flight: "1 h 30 min", hi: 3, lo: -1, sky: "snow",
       skyText: "Gris y con posible nieve",
-      vibe: "Mercadillos de Navidad, puentes y casco antiguo, con frío de invierno."
+      vibe: "Mercadillos de Navidad, puentes y casco antiguo, con frío de invierno.",
+      cost: {
+        lodging: 36, lodgingRange: [31, 45],
+        food: { ajustado: 27, normal: 50 },
+        local: 5,
+        transfer: 4, transferNote: "Autobús 119 y metro",
+        sights: 28, sightsNote: "Castillo de Praga (18 €) y otra visita (10 €)"
+      }
     },
     marrakech: {
       name: "Marrakech", country: "Marruecos", code: "RAK",
       flight: "3 h 30 min", hi: 19, lo: 6, sky: "sun",
       skyText: "Seco y soleado, noches frías",
-      vibe: "El único con días soleados y cálidos: zocos, riads y el Atlas a un día."
+      vibe: "El único con días soleados y cálidos: zocos, riads y el Atlas a un día.",
+      cost: {
+        lodging: 30, lodgingRange: [19, 40],
+        food: { ajustado: 11, normal: 35 },
+        local: 4,
+        transfer: 6, transferNote: "Autobús o taxi compartido",
+        sights: 26, sightsNote: "Jardín Majorelle (16 €) y otra visita (10 €)"
+      }
     },
     budapest: {
       name: "Budapest", country: "Hungría", code: "BUD",
       flight: "2 h", hi: 4, lo: 0, sky: "cloud",
       skyText: "Gris y con algo de niebla",
-      vibe: "Baños termales y mercadillos para plantarle cara al frío del Danubio."
+      vibe: "Baños termales y mercadillos para plantarle cara al frío del Danubio.",
+      cost: {
+        lodging: 33, lodgingRange: [27, 45],
+        food: { ajustado: 32, normal: 57 },
+        local: 4,
+        transfer: 13, transferNote: "Autobús 100E, 2.500 HUF por trayecto",
+        sights: 40, sightsNote: "Baños Széchenyi (30 €) y otra visita (10 €)"
+      }
     }
   },
   /*

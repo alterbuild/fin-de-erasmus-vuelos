@@ -3,8 +3,9 @@
 Comparador interactivo de vuelos directos desde Lille y Charleroi entre el 9 y el 18 de diciembre de 2026.
 
 - Elige tus días tocando la ida y la vuelta en la cinta de fechas.
-- Filtra por origen, duración y número de personas, y decide si sumas el autobús Lille a Charleroi.
-- Cada destino muestra su mejor billete, otras fechas y un enlace a Google Flights.
+- Filtra por origen, duración, número de personas y ritmo de gasto, y decide si sumas el autobús Lille a Charleroi.
+- Cada destino muestra su mejor billete, otras fechas, el coste estimado del viaje completo con su desglose y botones para comprar.
+- El gráfico de barras compara el viaje completo o solo el vuelo.
 
 Es un sitio estático sin dependencias: HTML, CSS y JavaScript. Abre `index.html` o sírvelo con cualquier servidor.
 
@@ -12,15 +13,33 @@ Es un sitio estático sin dependencias: HTML, CSS y JavaScript. Abre `index.html
 python3 -m http.server 8765
 ```
 
-## Cómo actualizar los precios
+## Cómo actualizar los datos
 
-Todos los datos están en `data.js`. Cada línea `add(destino, origen, aerolínea, ida, vuelta, precio, salida, llegada)` es un vuelo de ida y vuelta por persona.
+Todo está en `data.js`:
+
+- `add(destino, origen, aerolínea, ida, vuelta, precio, salida, llegada)`: cada línea es un vuelo de ida y vuelta, por persona.
+- `cost` de cada destino: alojamiento, comida, transporte local, traslado al aeropuerto y entradas, por persona.
+
+## Botones de compra
+
+Los botones abren la web de la aerolínea con la ruta, las fechas y el número de personas ya puestos:
+
+- easyJet: `https://www.easyjet.com/deeplink?...` (comprobado).
+- Ryanair: `https://www.ryanair.com/es/es/trip/flights/select?...` (comprobado, también con 10 pasajeros).
+- Wizz Air: `https://www.wizzair.com/es-es/booking/select-flight/...` (la web reconoce el formato, pero en la prueba no llegó a mostrar vuelos).
+
+Los enlaces no preseleccionan la hora del vuelo: se elige en la web de la aerolínea. Los formatos no están documentados oficialmente y pueden cambiar.
 
 ## De dónde salen los datos
 
 - Precios de Google Flights consultados el 27 de octubre de 2026, para 1 adulto, ida y vuelta y solo vuelos directos. Cambian a diario.
 - No incluyen maleta de bodega ni mochila grande.
 - El autobús Lille a Charleroi se estima en 45 € por persona, ida y vuelta (FlixBus o Flibco).
+- Alojamiento: media de apartamentos de Airbnb y Booking para 10 personas con 10 camas o más, para las fechas del viaje. En Praga se confirmaron camas individuales; en el resto, hay que revisar el tipo de cama.
+- Comida: precios de Numbeo (restaurante económico, cena de gama media, café y cerveza) con un 25 % más para zonas turísticas. El ritmo "ajustado" es un café y dos comidas económicas al día; el "normal", dos cafés, una comida económica, una cena de gama media y una cerveza.
+- Entradas: la atracción principal (Acrópolis, Castillo de Praga, baños Széchenyi, Jardín Majorelle) más 10 € de otra visita.
+- Traslados: metro de Atenas (16 € ida y vuelta), autobús 119 y metro en Praga, autobús 100E en Budapest.
+- No incluye tasas turísticas (de 1 a 3 € por persona y noche), compras, fiesta ni seguro de viaje.
 - Las temperaturas son medias habituales de diciembre, no una previsión.
 - Budapest del 14 al 18 de diciembre no se pudo consultar.
-- Con 10 personas, easyJet gestiona la reserva como grupo y el precio puede subir.
+- Con 10 personas, easyJet gestiona la reserva como grupo. Al comprobarlo, Praga salía a 55,29 € por persona en lugar de 54,94 €.
