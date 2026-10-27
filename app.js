@@ -32,7 +32,9 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const eur = (n) => Math.round(n) + " €";
-  const day = (n) => T.days[n - 9];
+  const FIRST = T.days[0].n;
+  const LAST = T.days[T.days.length - 1].n;
+  const day = (n) => T.days.find((d) => d.n === n);
   const short = (n) => day(n).w + " " + n;
   const pad = (n) => String(n).padStart(2, "0");
   const minus = (n) => String(n).replace("-", "−");
@@ -58,7 +60,7 @@
 
   const durKey = (o) => Math.min(o.ret - o.out + 1, 6);
   const eff = (o) => o.price + (o.from === "CRL" && state.bus ? BUS : 0);
-  const range = () => [state.start === null ? 9 : state.start, state.end === null ? 18 : state.end];
+  const range = () => [state.start === null ? FIRST : state.start, state.end === null ? LAST : state.end];
 
   function visible(o, opts) {
     if (state.origin !== "both" && o.from !== state.origin) return false;
@@ -143,6 +145,7 @@
   /* Construcción inicial */
 
   function buildRibbon() {
+    $("#ribbon").style.setProperty("--cols", T.days.length);
     $("#ribbon").innerHTML = T.days
       .map(
         (d, i) =>

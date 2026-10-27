@@ -7,7 +7,6 @@ window.TRIP = {
   checked: "27 de octubre de 2026",
   bus: 45, // autobús Lille–Charleroi, ida y vuelta, por persona (estimación)
   days: [
-    { n: 9, w: "mié", long: "miércoles" },
     { n: 10, w: "jue", long: "jueves" },
     { n: 11, w: "vie", long: "viernes" },
     { n: 12, w: "sáb", long: "sábado" },
@@ -52,7 +51,7 @@ window.TRIP = {
       skyText: "Seco y soleado, noches frías",
       vibe: "El único con días soleados y cálidos: zocos, riads y el Atlas a un día.",
       cost: {
-        lodging: 30, lodgingRange: [19, 40],
+        lodging: 25, lodgingRange: [19, 33],
         food: { ajustado: 11, normal: 35 },
         local: 4,
         transfer: 6, transferNote: "Autobús o taxi compartido",
@@ -99,12 +98,8 @@ window.TRIP = {
   add("atenas", "CRL", "Ryanair", 14, 18, 125, "20:45", "0:55", { next: true });
 
   // Praga, desde Lille (easyJet)
-  add("praga", "LIL", "easyJet", 9, 12, 84, "9:35", "11:10");
   add("praga", "LIL", "easyJet", 12, 16, 55, "17:00", "18:35", { cart: true, retDep: "11:50", retArr: "13:35" });
-  add("praga", "LIL", "easyJet", 9, 16, 71, "9:35", "11:10");
   // Praga, desde Charleroi (Ryanair)
-  add("praga", "CRL", "Ryanair", 9, 12, 120);
-  add("praga", "CRL", "Ryanair", 9, 14, 105);
   add("praga", "CRL", "Ryanair", 12, 16, 90, "14:25", "15:55");
 
   // Marrakech, desde Lille (easyJet)
@@ -112,20 +107,18 @@ window.TRIP = {
   add("marrakech", "LIL", "easyJet", 13, 17, 143, "11:55", "14:30");
   add("marrakech", "LIL", "easyJet", 10, 17, 117, "12:50", "15:25");
   // Marrakech, desde Charleroi (Ryanair)
-  add("marrakech", "CRL", "Ryanair", 9, 12, 61);
-  add("marrakech", "CRL", "Ryanair", 9, 13, 104, "20:00", "22:30");
-  add("marrakech", "CRL", "Ryanair", 9, 14, 96, "20:00", "22:30");
-  add("marrakech", "CRL", "Ryanair", 9, 15, 72);
   add("marrakech", "CRL", "Ryanair", 10, 14, 102, "14:10", "16:40");
   add("marrakech", "CRL", "Ryanair", 10, 15, 78, "14:10", "16:40");
   add("marrakech", "CRL", "Ryanair", 11, 15, 81, "11:05", "13:35");
   add("marrakech", "CRL", "Ryanair", 12, 16, 88, "14:30", "17:00");
   add("marrakech", "CRL", "Ryanair", 13, 17, 75, "15:20", "17:50");
   add("marrakech", "CRL", "Ryanair", 14, 18, 83, "19:00", "21:30");
+  // Mismas fechas con otro horario
+  add("marrakech", "CRL", "Ryanair", 10, 14, 110, "11:10", "13:40");
+  add("marrakech", "CRL", "Ryanair", 11, 15, 82, "21:15", "23:45");
+  add("marrakech", "CRL", "Ryanair", 12, 16, 92, "11:00", "13:30");
 
   // Budapest, desde Charleroi (Wizz Air y Ryanair)
-  add("budapest", "CRL", "Wizz Air", 9, 13, 70, "8:55", "10:55");
-  add("budapest", "CRL", "Wizz Air", 9, 14, 69, "8:55", "10:55");
   add("budapest", "CRL", "Ryanair", 10, 14, 72, "21:50", "23:50");
   add("budapest", "CRL", "Wizz Air", 10, 14, 95, "9:00", "11:00");
   add("budapest", "CRL", "Wizz Air", 11, 15, 68, "20:55", "23:00");
@@ -135,4 +128,6 @@ window.TRIP = {
   add("budapest", "CRL", "Ryanair", 13, 17, 59, "8:35", "10:35");
   add("budapest", "CRL", "Wizz Air", 13, 17, 63, "9:00", "11:00");
   add("budapest", "CRL", "Ryanair", 13, 17, 81, "17:40", "19:40");
+  add("budapest", "CRL", "Wizz Air", 14, 18, 58, "9:00", "11:00");
+  add("budapest", "CRL", "Ryanair", 14, 18, 66, "21:55", "23:55");
 })();

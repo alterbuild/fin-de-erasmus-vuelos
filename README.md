@@ -1,6 +1,6 @@
 # Fin de Erasmus: vuelos a Atenas, Praga, Marrakech y Budapest
 
-Comparador interactivo de vuelos directos desde Lille y Charleroi entre el 9 y el 18 de diciembre de 2026.
+Comparador interactivo de vuelos directos desde Lille y Charleroi entre el 10 y el 18 de diciembre de 2026. El miércoles 9 queda fuera porque ya no se puede viajar ese día.
 
 - Elige tus días tocando la ida y la vuelta en la cinta de fechas.
 - Filtra por origen, duración, número de personas y ritmo de gasto, y decide si sumas el autobús Lille a Charleroi.
@@ -41,5 +41,6 @@ Los enlaces no preseleccionan la hora del vuelo: se elige en la web de la aerol�
 - Traslados: metro de Atenas (16 € ida y vuelta), autobús 119 y metro en Praga, autobús 100E en Budapest.
 - No incluye tasas turísticas (de 1 a 3 € por persona y noche), compras, fiesta ni seguro de viaje.
 - Las temperaturas son medias habituales de diciembre, no una previsión.
-- Budapest del 14 al 18 de diciembre no se pudo consultar.
+- Mezclar aeropuertos (ida desde Lille y vuelta a Charleroi, o al revés) no sale más barato. En Marrakech, la mejor mezcla de 4 noches (ida desde Charleroi el 13 y vuelta a Lille el 17) cuesta unos 125 € con medio autobús, frente a unos 120 € por Charleroi. Los precios por tramo salen de la web de Ryanair (Charleroi) y de Google Flights (easyJet).
+- Alojamiento en Marrakech: riads para 10 con 10 camas o más desde unos 19 € por persona y noche (La Casa Koutoubia y Riad Nolya, a unos 760 y 780 € las 4 noches) hasta unos 33 €.
 - Con 10 personas, easyJet gestiona la reserva como grupo. Al comprobarlo, Praga salía a 55,29 € por persona en lugar de 54,94 €.
