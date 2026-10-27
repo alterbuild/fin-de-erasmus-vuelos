@@ -34,56 +34,73 @@
     </section>
 
     <section class="filters wrap" aria-label="Filtros">
-      <div class="filters__box">
-        <div class="field">
-          <span class="field__label" id="lbl-origin">Salgo desde</span>
-          <div class="seg" role="radiogroup" aria-labelledby="lbl-origin" id="origin">
-            <button type="button" role="radio" data-origin="both" aria-checked="true">Lille y Charleroi</button>
-            <button type="button" role="radio" data-origin="LIL" aria-checked="false">Solo Lille</button>
-            <button type="button" role="radio" data-origin="CRL" aria-checked="false">Solo Charleroi</button>
+      <details class="drawer" id="filters-drawer">
+        <summary>
+          <span class="drawer__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></span>
+          <span class="drawer__text">
+            <span class="drawer__title">Filtros</span>
+            <span class="chips" id="filters-now" aria-live="polite"></span>
+          </span>
+        </summary>
+        <div class="filters__box">
+          <div class="field">
+            <span class="field__label" id="lbl-origin">Salgo desde</span>
+            <div class="seg" role="radiogroup" aria-labelledby="lbl-origin" id="origin">
+              <button type="button" role="radio" data-origin="both" aria-checked="true">Los dos</button>
+              <button type="button" role="radio" data-origin="LIL" aria-checked="false">Solo Lille</button>
+              <button type="button" role="radio" data-origin="CRL" aria-checked="false">Solo Charleroi</button>
+            </div>
           </div>
-        </div>
 
-        <div class="field">
-          <span class="field__label" id="lbl-dur">Duración del viaje</span>
-          <div class="seg seg--multi" role="group" aria-labelledby="lbl-dur" id="durations">
-            <button type="button" data-dur="4" aria-pressed="false">4 días</button>
-            <button type="button" data-dur="5" aria-pressed="true">5 días</button>
-            <button type="button" data-dur="6" aria-pressed="false">6 días o más</button>
+          <div class="field">
+            <span class="field__label" id="lbl-dur">Duración del viaje</span>
+            <div class="seg seg--multi" role="group" aria-labelledby="lbl-dur" id="durations">
+              <button type="button" data-dur="4" aria-pressed="false">4 días</button>
+              <button type="button" data-dur="5" aria-pressed="true">5 días</button>
+              <button type="button" data-dur="6" aria-pressed="false">6 días o más</button>
+            </div>
           </div>
-        </div>
 
-        <div class="field">
-          <span class="field__label" id="lbl-people">Personas</span>
-          <div class="step" role="group" aria-labelledby="lbl-people">
-            <button type="button" data-action="people-minus" aria-label="Una persona menos">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+          <div class="field">
+            <span class="field__label" id="lbl-people">Personas</span>
+            <div class="step" role="group" aria-labelledby="lbl-people">
+              <button type="button" data-action="people-minus" aria-label="Una persona menos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+              </button>
+              <output id="people" aria-live="polite">10</output>
+              <button type="button" data-action="people-plus" aria-label="Una persona más">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="field__label" id="lbl-pace">Comida y salidas</span>
+            <div class="seg" role="radiogroup" aria-labelledby="lbl-pace" id="pace">
+              <button type="button" role="radio" data-pace="ajustado" aria-checked="true">Ajustado</button>
+              <button type="button" role="radio" data-pace="normal" aria-checked="false">Normal</button>
+            </div>
+            <span class="field__help" id="pace-help">Ajustado: desayuno en casa, menú del día y cena barata.</span>
+          </div>
+
+          <div class="field field--switch">
+            <button type="button" class="switch" role="switch" aria-checked="true" id="bus" aria-describedby="bus-help">
+              <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
+              <span class="switch__text">Sumar el autobús a Charleroi</span>
             </button>
-            <output id="people" aria-live="polite">10</output>
-            <button type="button" data-action="people-plus" aria-label="Una persona más">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
-            </button>
+            <span class="field__help" id="bus-help">Unos 45 € por persona, ida y vuelta.</span>
           </div>
         </div>
-
-        <div class="field">
-          <span class="field__label" id="lbl-pace">Comida y salidas</span>
-          <div class="seg" role="radiogroup" aria-labelledby="lbl-pace" id="pace">
-            <button type="button" role="radio" data-pace="ajustado" aria-checked="true">Ajustado</button>
-            <button type="button" role="radio" data-pace="normal" aria-checked="false">Normal</button>
-          </div>
-          <span class="field__help" id="pace-help">Ajustado: desayuno en casa, menú del día y cena barata.</span>
-        </div>
-
-        <div class="field field--switch">
-          <button type="button" class="switch" role="switch" aria-checked="true" id="bus" aria-describedby="bus-help">
-            <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
-            <span class="switch__text">Sumar el autobús a Charleroi</span>
-          </button>
-          <span class="field__help" id="bus-help">Unos 45 € por persona, ida y vuelta.</span>
-        </div>
-      </div>
-      <p class="alert" id="group-note" hidden>Con 10 personas, easyJet trata la reserva como grupo. Al comprobarlo hoy, Praga salía a 55,29 € por persona (29,30 € la ida y 25,99 € la vuelta) en lugar de 54,94 €. En Ryanair, con 10 personas la tarifa más barata se agota antes: la ida a Budapest del 13 pasó de 29,99 € a 30,99 €.</p>
+      </details>
+      <details class="drawer drawer--note" id="group-note" hidden>
+        <summary>
+          <span class="drawer__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span>
+          <span class="drawer__text">
+            <span class="drawer__title">Con 10 personas, algunos precios suben unos céntimos</span>
+          </span>
+        </summary>
+        <p>Con 10 personas, easyJet trata la reserva como grupo. Al comprobarlo hoy, Praga salía a 55,29 € por persona (29,30 € la ida y 25,99 € la vuelta) en lugar de 54,94 €. En Ryanair, con 10 personas la tarifa más barata se agota antes: la ida a Budapest del 13 pasó de 29,99 € a 30,99 €.</p>
+      </details>
     </section>
 
     <section class="summary wrap" id="resultados" aria-label="Resumen">

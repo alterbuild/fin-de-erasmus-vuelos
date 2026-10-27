@@ -3,7 +3,8 @@
 Comparador interactivo de vuelos directos desde Lille y Charleroi a Atenas, Praga, Marrakech, Essaouira, Tánger y Budapest, entre el 10 y el 18 de diciembre de 2026. El miércoles 9 queda fuera porque ya no se puede viajar ese día.
 
 - Elige tus días tocando la ida y la vuelta en la cinta de fechas.
-- Filtra por origen, duración, número de personas y ritmo de gasto, y decide si sumas el autobús Lille a Charleroi.
+- Filtra por origen, duración, número de personas y ritmo de gasto, y decide si sumas el autobús Lille a Charleroi. Los filtros están en un desplegable que, cerrado, resume en etiquetas lo que has elegido.
+- El aviso de la reserva de grupo (con 10 personas) es otro desplegable, cerrado de partida.
 - Cada destino muestra su mejor billete, otras fechas, el coste estimado del viaje completo con su desglose y botones para comprar.
 - El gráfico de barras compara el viaje completo o solo el vuelo.
 - La cabecera tiene seis puertas arqueadas con una foto de cada destino (en escritorio se abren al pasar el ratón y llevan al cartel), y cada cartel abre con su foto.

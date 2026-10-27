@@ -307,6 +307,21 @@
     $("#group-note").hidden = state.people < 10;
     $("#range-status").textContent = statusText();
     $("#range-reset").hidden = state.start === null;
+    updateFilterChips();
+  }
+
+  // Resumen de los filtros, visible con el desplegable cerrado.
+  function updateFilterChips() {
+    const durs = Array.from(state.durs).sort();
+    const chips = [
+      state.origin === "both" ? "Lille y Charleroi" : "Solo " + T.origins[state.origin],
+      durs.length ? durs.map((n) => (n === 6 ? "6 o más" : n)).join(", ") + " días" : "Sin duración",
+      plural(state.people, "persona", "personas"),
+      state.pace === "ajustado" ? "Ajustado" : "Normal"
+    ];
+    // El autobús va sumado de partida: solo se avisa cuando se quita.
+    if (!state.bus) chips.push("Sin autobús");
+    $("#filters-now").innerHTML = chips.map((c) => "<span>" + c + "</span>").join("");
   }
 
   function tripHTML(d, o) {
