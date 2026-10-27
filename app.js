@@ -3,24 +3,29 @@
   "use strict";
 
   const T = window.TRIP;
-  const ORDER = ["atenas", "praga", "marrakech", "budapest"];
+  const ORDER = ["atenas", "praga", "marrakech", "essaouira", "tanger", "budapest"];
   const BUS = T.bus;
   const COLOR = {
     atenas: "var(--atenas)",
     praga: "var(--praga)",
     marrakech: "var(--marrakech)",
+    essaouira: "var(--essaouira)",
+    tanger: "var(--tanger)",
     budapest: "var(--budapest)"
   };
-  const ON = { atenas: "#fff", praga: "#fff", marrakech: "var(--ink)", budapest: "#fff" };
+  const ON = {
+    atenas: "#fff", praga: "#fff", marrakech: "var(--ink)",
+    essaouira: "#fff", tanger: "#fff", budapest: "#fff"
+  };
 
   const state = {
     start: null,
     end: null,
     origin: "both",
-    durs: new Set([4, 5]),
+    durs: new Set([5]),
     people: 10,
     bus: true,
-    pace: "normal",
+    pace: "ajustado",
     view: "trip",
     picked: {},
     open: {},
@@ -53,6 +58,8 @@
     atenas: '<path d="M16 40 100 10 184 40Z"/><path d="M24 50H176"/><path d="M40 58V100M70 58V100M100 58V100M130 58V100M160 58V100"/><path d="M20 108H180"/>',
     praga: '<path d="M18 92V42L32 14 46 42V92"/><path d="M154 92V42L168 14 182 42V92"/><path d="M4 92H196"/><path d="M10 114A22 22 0 0 1 54 114M54 114A22 22 0 0 1 98 114M98 114A22 22 0 0 1 142 114M142 114A22 22 0 0 1 186 114"/>',
     marrakech: '<path d="M56 114V72C56 34 78 14 100 14S144 34 144 72V114"/><path d="M76 114V76C76 52 88 38 100 38S124 52 124 76V114"/>',
+    essaouira: '<path d="M10 106H190"/><path d="M16 106V66H40V78H64V66H88V78H112V66H136V78H160V66H184V106"/><circle cx="150" cy="30" r="11"/><path d="M60 38 70 26 80 38M70 26V12"/>',
+    tanger: '<path d="M86 108 95 48H115L124 108Z"/><path d="M92 48V36H118V48"/><path d="M105 36V16"/><path d="M96 24 114 24"/><path d="M8 116C28 106 48 124 68 116S108 124 128 116S168 106 192 116"/>',
     budapest: '<path d="M36 104C36 58 66 34 100 34S164 58 164 104"/><path d="M24 104H176"/><path d="M100 34V8"/><circle cx="30" cy="30" r="7"/><circle cx="174" cy="52" r="5"/><circle cx="48" cy="58" r="3.5"/>'
   };
 
@@ -445,7 +452,7 @@
   function summaryText() {
     const lines = [
       "Fin de Erasmus. Vuelos directos y coste estimado del viaje, por persona (" + plural(state.people, "persona", "personas") +
-        ", comida y salidas en ritmo " + state.pace + (state.bus ? ", Charleroi con " + BUS + " € de autobús" : "") + "):"
+        ", comida y salidas en ritmo " + state.pace + ", precios de estudiante" + (state.bus ? ", Charleroi con " + BUS + " € de autobús" : "") + "):"
     ];
     ORDER.forEach((d) => {
       const o = chosen(d);

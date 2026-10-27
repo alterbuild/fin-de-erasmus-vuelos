@@ -12,6 +12,8 @@
   --praga: #8f1d3a;
   --marrakech: #f2a900;
   --budapest: #0b7a75;
+  --essaouira: #176f8e;
+  --tanger: #c2410c;
 
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --display-stretch: 75%;
@@ -512,7 +514,7 @@ svg { display: block; }
 }
 
 @media (min-width: 720px) { .posters { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1180px) { .posters { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .posters { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 .poster {
   --c: var(--atenas);
@@ -534,6 +536,8 @@ svg { display: block; }
 .poster--praga { --c: var(--praga); --on: #fff; --soft: #f5c6d2; }
 .poster--marrakech { --c: var(--marrakech); --on: var(--ink); --soft: #fff0c2; }
 .poster--budapest { --c: var(--budapest); --on: #fff; --soft: #bdeee8; }
+.poster--essaouira { --c: var(--essaouira); --on: #fff; --soft: #bfe5f2; }
+.poster--tanger { --c: var(--tanger); --on: #fff; --soft: #ffd5bf; }
 
 .poster__art {
   position: absolute;

@@ -18,6 +18,13 @@ window.TRIP = {
     { n: 18, w: "vie", long: "viernes" }
   ],
   origins: { LIL: "Lille", CRL: "Charleroi" },
+  /*
+    cost, por persona:
+      lodging: noche en apartamento para 10 con 10 camas o más.
+      food: por día. ajustado = desayuno en el apartamento, menú del día y cena económica.
+            normal = dos cafés, comida económica, cena de gama media y una cerveza.
+      sights: entradas con descuento de estudiante.
+  */
   dest: {
     atenas: {
       name: "Atenas", country: "Grecia", code: "ATH",
@@ -26,10 +33,10 @@ window.TRIP = {
       vibe: "Acrópolis, Plaka y el Ágora al aire libre, con unos 14 grados.",
       cost: {
         lodging: 32, lodgingRange: [26, 38],
-        food: { ajustado: 42, normal: 72 },
+        food: { ajustado: 28, normal: 57 },
         local: 4,
         transfer: 16, transferNote: "Metro del aeropuerto, 16 € ida y vuelta",
-        sights: 40, sightsNote: "Acrópolis (30 €) y otra visita (10 €)"
+        sights: 20, sightsNote: "Acrópolis con descuento de estudiante (15 €; gratis para menores de 25 de la UE) y otra visita (5 €)"
       }
     },
     praga: {
@@ -39,10 +46,10 @@ window.TRIP = {
       vibe: "Mercadillos de Navidad, puentes y casco antiguo, con frío de invierno.",
       cost: {
         lodging: 36, lodgingRange: [31, 45],
-        food: { ajustado: 27, normal: 50 },
+        food: { ajustado: 18, normal: 40 },
         local: 5,
         transfer: 4, transferNote: "Autobús 119 y metro",
-        sights: 28, sightsNote: "Castillo de Praga (18 €) y otra visita (10 €)"
+        sights: 14, sightsNote: "Castillo de Praga con descuento de estudiante (unos 9 €) y otra visita (5 €)"
       }
     },
     marrakech: {
@@ -52,10 +59,10 @@ window.TRIP = {
       vibe: "El único con días soleados y cálidos: zocos, riads y el Atlas a un día.",
       cost: {
         lodging: 25, lodgingRange: [19, 33],
-        food: { ajustado: 11, normal: 35 },
+        food: { ajustado: 8, normal: 28 },
         local: 4,
         transfer: 6, transferNote: "Autobús o taxi compartido",
-        sights: 26, sightsNote: "Jardín Majorelle (16 €) y otra visita (10 €)"
+        sights: 14, sightsNote: "Jardín Majorelle con tarifa de estudiante (unos 9 €) y otra visita (5 €)"
       }
     },
     budapest: {
@@ -65,10 +72,36 @@ window.TRIP = {
       vibe: "Baños termales y mercadillos para plantarle cara al frío del Danubio.",
       cost: {
         lodging: 33, lodgingRange: [27, 45],
-        food: { ajustado: 32, normal: 57 },
+        food: { ajustado: 21, normal: 45 },
         local: 4,
         transfer: 13, transferNote: "Autobús 100E, 2.500 HUF por trayecto",
-        sights: 40, sightsNote: "Baños Széchenyi (30 €) y otra visita (10 €)"
+        sights: 23, sightsNote: "Baños Lukács entre semana (unos 18 €) y otra visita (5 €)"
+      }
+    },
+    essaouira: {
+      name: "Essaouira", country: "Marruecos", code: "ESU",
+      flight: "3 h 40 min", hi: 18, lo: 10, sky: "cloud",
+      skyText: "Fresco y ventoso, con sol a ratos",
+      vibe: "Medina amurallada junto al Atlántico, puerto de pescadores y playa. Tranquila y muy barata.",
+      cost: {
+        lodging: 16, lodgingRange: [15, 20],
+        food: { ajustado: 9, normal: 28 },
+        local: 2,
+        transfer: 8, transferNote: "Taxi compartido, a unos 15 km de la medina",
+        sights: 8, sightsNote: "Skala, museos y otra visita (unos 8 €, estimación)"
+      }
+    },
+    tanger: {
+      name: "Tánger", country: "Marruecos", code: "TNG",
+      flight: "2 h 55 min", hi: 16, lo: 10, sky: "cloud",
+      skyText: "Templado, con lluvia posible",
+      vibe: "Medina, kasbah y vistas al Estrecho de Gibraltar. África a un salto de Europa.",
+      cost: {
+        lodging: 16, lodgingRange: [13, 25],
+        food: { ajustado: 8, normal: 26 },
+        local: 3,
+        transfer: 5, transferNote: "Autobús o taxi compartido",
+        sights: 8, sightsNote: "Museo de la Kasbah y otra visita (unos 8 €, estimación)"
       }
     }
   },
@@ -130,4 +163,17 @@ window.TRIP = {
   add("budapest", "CRL", "Ryanair", 13, 17, 81, "17:40", "19:40");
   add("budapest", "CRL", "Wizz Air", 14, 18, 58, "9:00", "11:00");
   add("budapest", "CRL", "Ryanair", 14, 18, 66, "21:55", "23:55");
+
+  // Essaouira, desde Charleroi (Ryanair)
+  add("essaouira", "CRL", "Ryanair", 10, 13, 61);
+  add("essaouira", "CRL", "Ryanair", 10, 15, 52);
+  add("essaouira", "CRL", "Ryanair", 13, 17, 64, "13:35", "16:15");
+
+  // Tánger, desde Charleroi (Ryanair)
+  add("tanger", "CRL", "Ryanair", 10, 14, 75, "14:30", "16:25");
+  add("tanger", "CRL", "Ryanair", 11, 15, 65, "20:05", "22:00");
+  add("tanger", "CRL", "Ryanair", 12, 16, 76, "18:30", "20:25");
+  add("tanger", "CRL", "Ryanair", 12, 16, 90, "13:10", "15:05");
+  add("tanger", "CRL", "Ryanair", 13, 17, 93, "21:25", "23:20");
+  add("tanger", "CRL", "Ryanair", 14, 18, 80, "21:00", "22:55");
 })();
