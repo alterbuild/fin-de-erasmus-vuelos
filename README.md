@@ -6,6 +6,7 @@ Comparador interactivo de vuelos directos desde Lille y Charleroi a Atenas, Prag
 - Filtra por origen, duración, número de personas y ritmo de gasto, y decide si sumas el autobús Lille a Charleroi.
 - Cada destino muestra su mejor billete, otras fechas, el coste estimado del viaje completo con su desglose y botones para comprar.
 - El gráfico de barras compara el viaje completo o solo el vuelo.
+- La cabecera tiene seis puertas arqueadas con una foto de cada destino (en escritorio se abren al pasar el ratón y llevan al cartel), y cada cartel abre con su foto.
 
 Es un sitio estático sin dependencias: HTML, CSS y JavaScript. Abre `index.html` o sírvelo con cualquier servidor.
 
@@ -19,6 +20,21 @@ Todo está en `data.js`:
 
 - `add(destino, origen, aerolínea, ida, vuelta, precio, salida, llegada)`: cada línea es un vuelo de ida y vuelta, por persona.
 - `cost` de cada destino: alojamiento, comida, transporte local, traslado al aeropuerto y entradas, por persona.
+
+## Fotos
+
+Las fotos son de Wikimedia Commons con licencia libre y están en `img/`: `<destino>.jpg` para los carteles y `<destino>-sm.jpg`, más ligera, para la cabecera en móvil. Están recortadas y reducidas. El autor, la licencia y el enlace de cada una están en `photos` de `data.js`, y la web los muestra en cada foto y en la lista de créditos del final.
+
+| Destino | Autor | Licencia |
+|---|---|---|
+| Atenas | A.Savin | CC BY-SA 3.0 |
+| Praga | Scotch Mist | CC BY-SA 4.0 |
+| Marrakech | Herokk | CC BY-SA 4.0 |
+| Essaouira | Mustang Joe | CC0 |
+| Tánger | Diego Delso | CC BY-SA 4.0 |
+| Budapest | Wilfredor | CC0 |
+
+Para cambiar una foto, sustituye los dos archivos y actualiza su entrada en `photos`. `pos` es el punto de enfoque del recorte.
 
 ## Botones de compra
 

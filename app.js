@@ -206,13 +206,44 @@
       "</span></li>";
   }
 
+  // Cabecera: una puerta arqueada por destino. Lleva al cartel de cada uno.
+  function buildReel() {
+    $("#reel").innerHTML = ORDER.map((d, i) => {
+      const m = T.dest[d];
+      const p = T.photos[d];
+      return (
+        '<li style="--c:' + COLOR[d] + ";--pos:" + p.pos + ";--i:" + i + '">' +
+        '<a class="reel__item" href="#poster-' + d + '">' +
+        '<picture><source media="(max-width: 719px)" srcset="img/' + d + '-sm.jpg">' +
+        '<img src="img/' + d + '.jpg" alt="" width="1200" height="800" decoding="async"></picture>' +
+        '<span class="reel__label"><span class="reel__name">' + m.name + "</span>" +
+        '<span class="reel__country">' + m.country + "</span></span></a></li>"
+      );
+    }).join("");
+  }
+
+  function buildCredits() {
+    $("#credits").innerHTML = ORDER.map((d) => {
+      const p = T.photos[d];
+      return (
+        "<li>" + T.dest[d].name + ': <a href="' + p.page + '" target="_blank" rel="noopener">foto de ' + p.by +
+        '</a>, <a href="' + p.licUrl + '" target="_blank" rel="noopener">' + p.lic + "</a>. Recortada y reducida.</li>"
+      );
+    }).join("");
+  }
+
   function buildPosters() {
     $("#posters").innerHTML = ORDER.map((d) => {
       const m = T.dest[d];
+      const p = T.photos[d];
       return (
         '<article class="poster poster--' + d + '" id="poster-' + d + '" aria-labelledby="h-' + d + '">' +
+        '<figure class="poster__photo" style="--pos:' + p.pos + '">' +
+        '<img src="img/' + d + '.jpg" alt="' + p.alt + '" width="1200" height="800" loading="lazy" decoding="async">' +
+        '<figcaption><a href="' + p.page + '" target="_blank" rel="noopener">Foto: ' + p.by + "</a></figcaption></figure>" +
+        '<header class="poster__head">' +
         '<svg class="poster__art" viewBox="0 0 200 120" aria-hidden="true">' + ART[d] + "</svg>" +
-        '<header class="poster__head"><h2 class="poster__name" id="h-' + d + '">' + m.name + "</h2>" +
+        '<h2 class="poster__name" id="h-' + d + '">' + m.name + "</h2>" +
         '<p class="poster__country">' + m.country + "</p></header>" +
         '<ul class="facts">' +
         "<li>" + ICON.clock + "<span>Vuelo de " + m.flight + "</span></li>" +
@@ -585,7 +616,9 @@
   buildLegend();
   buildBars();
   buildTemps();
+  buildReel();
   buildPosters();
+  buildCredits();
   $("#ribbon").classList.add("is-intro");
   update();
   state.ready = true;

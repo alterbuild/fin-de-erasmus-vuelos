@@ -19,6 +19,48 @@ window.TRIP = {
   ],
   origins: { LIL: "Lille", CRL: "Charleroi" },
   /*
+    Fotos de Wikimedia Commons con licencia libre. Cada una está en img/<destino>.jpg
+    (carteles) e img/<destino>-sm.jpg (cabecera). pos es el punto de enfoque al recortar.
+  */
+  photos: {
+    atenas: {
+      alt: "La Acrópolis de Atenas sobre su colina, vista desde la colina de Filopapo",
+      pos: "62% 45%", by: "A.Savin", lic: "CC BY-SA 3.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg"
+    },
+    praga: {
+      alt: "El castillo de Praga sobre los tejados rojos y el río Moldava",
+      pos: "50% 0%", by: "Scotch Mist", lic: "CC BY-SA 4.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Prague_Charles_Bridge_2021_11.jpg"
+    },
+    marrakech: {
+      alt: "La plaza Jemaa el-Fnaa de Marrakech al atardecer, con el minarete de la Kutubía al fondo",
+      pos: "62% 50%", by: "Herokk", lic: "CC BY-SA 4.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Jemaa_el-Fnaa_Marrakech_at_sunset.jpg"
+    },
+    essaouira: {
+      alt: "Barcas de pesca azules amontonadas en el puerto de Essaouira",
+      pos: "50% 50%", by: "Mustang Joe", lic: "CC0",
+      licUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Fishing_boats_of_Essaouira_-_Morocco.jpg"
+    },
+    tanger: {
+      alt: "El faro del cabo Espartel junto al mar azul, a las afueras de Tánger",
+      pos: "84% 50%", by: "Diego Delso", lic: "CC BY-SA 4.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Faro_del_cabo_Espartel,_Marruecos,_2015-12-11,_DD_02.JPG"
+    },
+    budapest: {
+      alt: "El Puente de las Cadenas de Budapest iluminado de noche, con el Danubio y el castillo detrás",
+      pos: "60% 50%", by: "Wilfredor", lic: "CC0",
+      licUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Sz%C3%A9chenyi_Chain_Bridge_in_Budapest_at_night.jpg"
+    }
+  },
+  /*
     cost, por persona:
       lodging: noche en apartamento para 10 con 10 camas o más.
       food: por día. ajustado = desayuno en el apartamento, menú del día y cena económica.
