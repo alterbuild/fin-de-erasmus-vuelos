@@ -28,7 +28,7 @@
     origin: "both",
     durs: new Set([5]),
     people: 10,
-    bus: true,
+    bus: false,
     pace: "ajustado",
     view: "trip",
     picked: {},
@@ -341,8 +341,8 @@
       plural(state.people, "persona", "personas"),
       state.pace === "ajustado" ? "Ajustado" : "Normal"
     ];
-    // El autobús va sumado de partida: solo se avisa cuando se quita.
-    if (!state.bus) chips.push("Sin autobús");
+    // El autobús no va sumado de partida: solo se avisa cuando se añade.
+    if (state.bus) chips.push("Con autobús");
     $("#filters-now").innerHTML = chips.map((c) => "<span>" + c + "</span>").join("");
   }
 
