@@ -15,6 +15,9 @@
   --essaouira: #176f8e;
   --tanger: #c2410c;
   --estambul: #6b3fa0;
+  --viena: #a12a6b;
+  --tirana: #5f7a13;
+  --zagreb: #2f7a4a;
 
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --display-stretch: 75%;
@@ -105,17 +108,23 @@ svg { display: block; }
 
 /* Puertas arqueadas de la cabecera: una foto por destino */
 
+/* Móvil: una tira que se desliza de lado, con la siguiente puerta asomando */
 .reel {
   grid-column: 1 / -1;
   list-style: none;
-  margin: 10px 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 6px -4px 0;
+  padding: 4px 4px 8px;
+  display: flex;
   gap: clamp(6px, 1.4vw, 12px);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 4px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+.reel::-webkit-scrollbar { display: none; }
 
-.reel li { min-width: 0; }
+.reel li { flex: 0 0 30%; min-width: 0; scroll-snap-align: start; }
 
 .reel__item {
   --arch: 50% 50% 18px 18px / 30% 30% 18px 18px;
@@ -180,26 +189,38 @@ svg { display: block; }
 
 .reel__item:focus-visible { outline-offset: 4px; }
 
-@media (min-width: 720px) {
-  .reel { display: flex; gap: 10px; }
-  .reel li { flex: 1 1 0; transition: flex-grow 0.6s var(--ease); }
-  .reel__item { height: clamp(260px, 29vw, 400px); }
-  .reel__name { font-size: clamp(1.15rem, 2.2vw, 2.1rem); }
-  .reel__country { font-size: 0.85rem; }
+/* Tableta: dos filas de cinco puertas */
+@media (min-width: 720px) and (max-width: 1099px) {
+  .reel {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    overflow: visible;
+    margin: 10px 0 0;
+    padding: 0;
+  }
+  .reel li { flex: none; }
+  .reel__item { height: clamp(190px, 25vw, 250px); }
+  .reel__name { font-size: clamp(1.15rem, 2.4vw, 1.6rem); }
+  .reel__country { font-size: 0.82rem; }
 }
 
-/* En escritorio, la puerta que miras se abre y las demás se estrechan */
-@media (min-width: 720px) and (hover: hover) {
+/* Escritorio: todas en una fila; la puerta que miras se abre y las demás se estrechan */
+@media (min-width: 1100px) {
+  .reel { gap: 10px; overflow: visible; margin: 10px 0 0; padding: 0; }
+  .reel li { flex: 1 1 0; transition: flex-grow 0.6s var(--ease); }
+  .reel__item { height: clamp(300px, 28vw, 400px); }
+  .reel__name { font-size: clamp(1.05rem, 1.55vw, 1.6rem); }
+  .reel__country { font-size: 0.82rem; }
+}
+
+@media (min-width: 1100px) and (hover: hover) {
   .reel li:hover,
   .reel li:focus-within { flex-grow: 2.6; }
-  .reel li:hover img,
-  .reel li:focus-within img { transform: scale(1.06); }
 }
 
-/* En móvil, el séptimo destino ocupa toda la última fila */
-@media (max-width: 719px) {
-  .reel li:last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
-  .reel li:last-child:nth-child(3n + 1) .reel__item { height: clamp(120px, 34vw, 170px); }
+@media (min-width: 720px) and (hover: hover) {
+  .reel li:hover img,
+  .reel li:focus-within img { transform: scale(1.06); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -278,8 +299,8 @@ svg { display: block; }
 }
 
 .dot {
-  width: clamp(5px, 0.8vw, 8px);
-  height: clamp(5px, 0.8vw, 8px);
+  width: clamp(4px, 0.8vw, 8px);
+  height: clamp(4px, 0.8vw, 8px);
   border-radius: 50%;
   background: var(--c);
 }
@@ -732,6 +753,9 @@ svg { display: block; }
 .poster--essaouira { --c: var(--essaouira); --on: #fff; --soft: #bfe5f2; }
 .poster--tanger { --c: var(--tanger); --on: #fff; --soft: #ffd5bf; }
 .poster--estambul { --c: var(--estambul); --on: #fff; --soft: #e3d4f7; }
+.poster--viena { --c: var(--viena); --on: #fff; --soft: #f3c9e0; }
+.poster--tirana { --c: var(--tirana); --on: #fff; --soft: #e2edb5; }
+.poster--zagreb { --c: var(--zagreb); --on: #fff; --soft: #c6ecd5; }
 
 /* La foto sangra hasta los bordes del cartel */
 .poster__photo {

@@ -1,10 +1,10 @@
 /*
   Datos de la comparativa. Para actualizar precios, edita solo este archivo.
-  Precios: Google Flights, 27 de octubre de 2026 (Estambul, 28 de octubre), 1 adulto,
+  Precios: Google Flights, 27 de octubre de 2026 (Estambul, Viena, Tirana y Zagreb, 28 de octubre), 1 adulto,
   ida y vuelta, solo vuelos directos, sin maleta de bodega.
 */
 window.TRIP = {
-  checked: "27 de octubre de 2026 (Estambul, el 28)",
+  checked: "27 de octubre de 2026 (Estambul, Viena, Tirana y Zagreb, el 28)",
   bus: 45, // autobús Lille–Charleroi, ida y vuelta, por persona (estimación)
   days: [
     { n: 10, w: "jue", long: "jueves" },
@@ -58,6 +58,24 @@ window.TRIP = {
       pos: "50% 50%", by: "Benh Lieu Song", lic: "CC BY-SA 3.0",
       licUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
       page: "https://commons.wikimedia.org/wiki/File:Blue_Mosque_Courtyard_Dusk_Wikimedia_Commons.jpg"
+    },
+    viena: {
+      alt: "El Palacio del Belvedere de Viena iluminado al anochecer y reflejado en el estanque",
+      pos: "50% 50%", by: "Diego Delso", lic: "CC BY-SA 4.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Palacio_Belvedere,_Viena,_Austria,_2020-02-01,_DD_93-95_HDR.jpg"
+    },
+    tirana: {
+      alt: "La plaza Skanderbeg de Tirana, con la estatua del héroe nacional y la torre del reloj",
+      pos: "40% 50%", by: "Pudelek", lic: "CC BY-SA 4.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Tirana_-_Skanderbeg_Square_(Sheshi_Sk%C3%ABnderbej)_-_by_Pudelek.jpg"
+    },
+    zagreb: {
+      alt: "La catedral de Zagreb al amanecer, con la fuente de la Virgen en primer plano",
+      pos: "40% 50%", by: "Larisa Uhryn", lic: "CC BY-SA 4.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Zagreb_cathedral_at_sunrise.jpg"
     },
     budapest: {
       alt: "El Puente de las Cadenas de Budapest iluminado de noche, con el Danubio y el castillo detrás",
@@ -164,6 +182,45 @@ window.TRIP = {
         transfer: 8, transferNote: "Metro M4 y Marmaray desde Sabiha Gökçen (hora y media), más la Istanbulkart (unos 3 €)",
         sights: 42, sightsNote: "Cisterna Basílica (unos 27 €) y Museos Arqueológicos (15 €). Santa Sofía (planta baja), la Mezquita Azul y el Gran Bazar son gratis"
       }
+    },
+    viena: {
+      name: "Viena", country: "Austria", code: "VIE",
+      flight: "1 h 45 min", hi: 4, lo: -1, sky: "snow",
+      skyText: "Gris, frío y con posible nieve",
+      vibe: "Mercadillos de Navidad, palacios y cafés de siempre, con la Ópera de pie por unos 13 €.",
+      cost: {
+        lodging: 29, lodgingRange: [25, 34],
+        food: { ajustado: 23, normal: 53 },
+        local: 5,
+        transfer: 10, transferNote: "Tren S7 del aeropuerto, unos 5 € por trayecto (estimación)",
+        sights: 24, sightsNote: "Belvedere con tarifa de estudiante (19 €, menores de 26) y otra visita (5 €). Los mercadillos y los jardines de Schönbrunn son gratis"
+      }
+    },
+    tirana: {
+      name: "Tirana", country: "Albania", code: "TIA",
+      flight: "2 h 30 min", hi: 13, lo: 5, sky: "cloud",
+      skyText: "Nublado, con lluvia casi la mitad de los días",
+      vibe: "Plaza Skanderbeg, el barrio de Blloku, búnkeres convertidos en museos y el teleférico del Dajti. Una capital muy barata y animada.",
+      cost: {
+        lodging: 15, lodgingRange: [14, 17],
+        food: { ajustado: 12, normal: 27 },
+        local: 2,
+        transfer: 8, transferNote: "Autobús del aeropuerto al centro, unos 4 € por trayecto",
+        sights: 17, sightsNote: "Bunk'Art 1 y 2 con entrada combinada (unos 12 €) y otra visita (5 €)"
+      }
+    },
+    zagreb: {
+      name: "Zagreb", country: "Croacia", code: "ZAG",
+      flight: "1 h 50 min", hi: 5, lo: -1, sky: "cloud",
+      skyText: "Gris, con niebla y algo de lluvia",
+      vibe: "El Advent de Zagreb, uno de los mercadillos de Navidad más famosos de Europa, y una ciudad alta de postal.",
+      cost: {
+        lodging: 30, lodgingRange: [28, 34],
+        food: { ajustado: 18, normal: 40 },
+        local: 4,
+        transfer: 16, transferNote: "Autobús del aeropuerto a la estación central, 8 € por trayecto",
+        sights: 12, sightsNote: "Museo de las Relaciones Rotas (7 €) y otra visita (5 €). El Advent y la ciudad alta son gratis"
+      }
     }
   },
   /*
@@ -258,4 +315,49 @@ window.TRIP = {
   ist(13, 17, 191, "15:00", "20:20");
   ist(11, 15, 157, "11:25", "16:45");
   ist(12, 16, 191, "18:00", "23:20");
+
+  // Viena, desde Charleroi (Ryanair, operado por Lauda Europe). Solo vuela lunes, jueves y sábado.
+  add("viena", "CRL", "Ryanair", 12, 17, 64, "21:10", "22:55", { retDep: "9:35", retArr: "11:25" });
+  add("viena", "CRL", "Ryanair", 10, 14, 142, "7:25", "9:10", { retDep: "16:50", retArr: "18:40" });
+  add("viena", "CRL", "Ryanair", 14, 17, 93, "19:10", "20:55", { retDep: "9:35", retArr: "11:25" });
+  add("viena", "CRL", "Ryanair", 10, 17, 125, "7:25", "9:10", { retDep: "9:35", retArr: "11:25" });
+
+  // Tirana, desde Charleroi (Ryanair y Wizz Air). Vuelos todos los días.
+  const tiaBack = { 13: ["9:25", "12:05"], 14: ["19:55", "22:35"], 15: ["20:15", "22:55"], 16: ["9:25", "12:05"], 17: ["9:30", "12:10"], 18: ["20:10", "22:50"] };
+  const tia = (out, ret, price, dep, arr, extra) =>
+    add("tirana", "CRL", "Ryanair", out, ret, price, dep, arr, Object.assign({ retDep: tiaBack[ret][0], retArr: tiaBack[ret][1] }, extra));
+  tia(10, 13, 50, "6:30", "9:00");
+  tia(10, 14, 40, "6:30", "9:00");
+  tia(10, 15, 40, "6:30", "9:00");
+  tia(10, 17, 50, "6:30", "9:00");
+  tia(11, 14, 40, "17:10", "19:40");
+  tia(11, 15, 40, "17:10", "19:40");
+  tia(11, 16, 41, "17:10", "19:40");
+  tia(12, 15, 40, "6:50", "9:20");
+  tia(12, 16, 41, "6:50", "9:20");
+  tia(12, 17, 50, "6:50", "9:20");
+  tia(13, 16, 31, "6:30", "9:00");
+  tia(13, 17, 40, "6:30", "9:00");
+  tia(13, 18, 32, "6:30", "9:00");
+  tia(14, 17, 50, "17:00", "19:30");
+  tia(14, 18, 42, "17:00", "19:30");
+  // Mismas fechas con otro horario o con Wizz Air
+  tia(13, 17, 50, "12:40", "15:10");
+  add("tirana", "CRL", "Wizz Air", 13, 17, 51, "9:40", "12:10", { retDep: "5:55", retArr: "8:45" });
+  add("tirana", "CRL", "Wizz Air", 10, 14, 51, "9:35", "12:05", { retDep: "17:25", retArr: "20:15" });
+  add("tirana", "CRL", "Wizz Air", 12, 16, 51, "20:45", "23:15", { retDep: "5:55", retArr: "8:45" });
+
+  // Zagreb, desde Charleroi (Ryanair, operado por Lauda Europe). Solo hay vuelo algunos días.
+  const zag = (out, ret, price, dep, arr, rd, ra) => add("zagreb", "CRL", "Ryanair", out, ret, price, dep, arr, { retDep: rd, retArr: ra });
+  zag(10, 13, 65, "20:15", "22:05", "18:20", "20:20");
+  zag(10, 14, 57, "20:15", "22:05", "13:45", "15:45");
+  zag(10, 17, 62, "20:15", "22:05", "17:50", "19:50");
+  zag(10, 18, 61, "20:15", "22:05", "6:35", "8:35");
+  zag(11, 14, 67, "9:00", "10:50", "13:45", "15:45");
+  zag(11, 17, 72, "9:00", "10:50", "17:50", "19:50");
+  zag(11, 18, 71, "9:00", "10:50", "6:35", "8:35");
+  zag(13, 17, 73, "20:45", "22:35", "17:50", "19:50");
+  zag(13, 18, 72, "20:45", "22:35", "6:35", "8:35");
+  zag(14, 17, 57, "16:10", "18:00", "17:50", "19:50");
+  zag(14, 18, 56, "16:10", "18:00", "6:35", "8:35");
 })();

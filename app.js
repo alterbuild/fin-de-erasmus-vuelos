@@ -3,7 +3,7 @@
   "use strict";
 
   const T = window.TRIP;
-  const ORDER = ["atenas", "praga", "marrakech", "essaouira", "tanger", "budapest", "estambul"];
+  const ORDER = ["atenas", "praga", "marrakech", "essaouira", "tanger", "budapest", "estambul", "viena", "tirana", "zagreb"];
   const BUS = T.bus;
   const COLOR = {
     atenas: "var(--atenas)",
@@ -12,11 +12,14 @@
     essaouira: "var(--essaouira)",
     tanger: "var(--tanger)",
     budapest: "var(--budapest)",
-    estambul: "var(--estambul)"
+    estambul: "var(--estambul)",
+    viena: "var(--viena)",
+    tirana: "var(--tirana)",
+    zagreb: "var(--zagreb)"
   };
   const ON = {
     atenas: "#fff", praga: "#fff", marrakech: "var(--ink)",
-    essaouira: "#fff", tanger: "#fff", budapest: "#fff", estambul: "#fff"
+    essaouira: "#fff", tanger: "#fff", budapest: "#fff", estambul: "#fff", viena: "#fff", tirana: "#fff", zagreb: "#fff"
   };
 
   const state = {
@@ -62,7 +65,10 @@
     essaouira: '<path d="M10 106H190"/><path d="M16 106V66H40V78H64V66H88V78H112V66H136V78H160V66H184V106"/><circle cx="150" cy="30" r="11"/><path d="M60 38 70 26 80 38M70 26V12"/>',
     tanger: '<path d="M86 108 95 48H115L124 108Z"/><path d="M92 48V36H118V48"/><path d="M105 36V16"/><path d="M96 24 114 24"/><path d="M8 116C28 106 48 124 68 116S108 124 128 116S168 106 192 116"/>',
     budapest: '<path d="M36 104C36 58 66 34 100 34S164 58 164 104"/><path d="M24 104H176"/><path d="M100 34V8"/><circle cx="30" cy="30" r="7"/><circle cx="174" cy="52" r="5"/><circle cx="48" cy="58" r="3.5"/>',
-    estambul: '<path d="M12 108H188"/><path d="M58 108V74C58 48 78 32 100 32S142 48 142 74V108"/><path d="M100 32V14"/><path d="M30 108V90C30 78 40 72 58 72M170 108V90C170 78 160 72 142 72"/><path d="M12 108V50L17 38 22 50V108M178 108V50L183 38 188 50V108"/>'
+    estambul: '<path d="M12 108H188"/><path d="M58 108V74C58 48 78 32 100 32S142 48 142 74V108"/><path d="M100 32V14"/><path d="M30 108V90C30 78 40 72 58 72M170 108V90C170 78 160 72 142 72"/><path d="M12 108V50L17 38 22 50V108M178 108V50L183 38 188 50V108"/>',
+    viena: '<circle cx="100" cy="54" r="42"/><circle cx="100" cy="54" r="5"/><path d="M100 12V96M58 54H142M70 24L130 84M130 24L70 84"/><path d="M80 112 100 54 120 112M66 112H134"/>',
+    tirana: '<path d="M20 108H184"/><path d="M26 108V38L38 20 50 38V108"/><circle cx="38" cy="56" r="7"/><path d="M76 108V86C76 68 88 58 104 58S132 68 132 86V108"/><path d="M104 58V46"/><path d="M164 108V28L168 12 172 28V108"/>',
+    zagreb: '<path d="M44 108V66H156V108"/><path d="M54 66V40L70 10 86 40V66"/><path d="M114 66V40L130 10 146 40V66"/><path d="M88 108V92a12 12 0 0 1 24 0V108"/><path d="M20 108H180"/>'
   };
 
   /* Datos derivados */

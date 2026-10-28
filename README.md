@@ -1,13 +1,13 @@
 # Fin de Erasmus: comparador de vuelos
 
-Comparador interactivo de vuelos directos desde Lille y Charleroi a Atenas, Praga, Marrakech, Essaouira, Tánger, Budapest y Estambul, entre el 10 y el 18 de diciembre de 2026. El miércoles 9 queda fuera porque ya no se puede viajar ese día.
+Comparador interactivo de vuelos directos desde Lille y Charleroi a Atenas, Praga, Marrakech, Essaouira, Tánger, Budapest, Estambul, Viena, Tirana y Zagreb, entre el 10 y el 18 de diciembre de 2026. El miércoles 9 queda fuera porque ya no se puede viajar ese día.
 
 - Elige tus días tocando la ida y la vuelta en la cinta de fechas.
 - Filtra por origen, duración, número de personas y ritmo de gasto, y decide si sumas el autobús Lille a Charleroi. Los filtros están en un desplegable que, cerrado, resume en etiquetas lo que has elegido.
 - El aviso de la reserva de grupo (con 10 personas) es otro desplegable, cerrado de partida.
 - Cada destino muestra su mejor billete, otras fechas, el coste estimado del viaje completo con su desglose y botones para comprar.
 - El gráfico de barras compara el viaje completo o solo el vuelo.
-- La cabecera tiene seis puertas arqueadas con una foto de cada destino (en escritorio se abren al pasar el ratón y llevan al cartel), y cada cartel abre con su foto.
+- La cabecera tiene diez puertas arqueadas con una foto de cada destino (en escritorio se abren al pasar el ratón y llevan al cartel), y cada cartel abre con su foto.
 
 Es un sitio estático sin dependencias: HTML, CSS y JavaScript. Abre `index.html` o sírvelo con cualquier servidor.
 
@@ -35,6 +35,9 @@ Las fotos son de Wikimedia Commons con licencia libre y están en `img/`: `<dest
 | Tánger | Diego Delso | CC BY-SA 4.0 |
 | Budapest | Wilfredor | CC0 |
 | Estambul | Benh Lieu Song | CC BY-SA 3.0 |
+| Viena | Diego Delso | CC BY-SA 4.0 |
+| Tirana | Pudelek | CC BY-SA 4.0 |
+| Zagreb | Larisa Uhryn | CC BY-SA 4.0 |
 
 Para cambiar una foto, sustituye los dos archivos y actualiza su entrada en `photos`. `pos` es el punto de enfoque del recorte.
 
@@ -51,7 +54,7 @@ Los enlaces no preseleccionan la hora del vuelo: se elige en la web de la aerol�
 
 ## De dónde salen los datos
 
-- Precios de Google Flights consultados el 27 de octubre de 2026 (Estambul, el 28), para 1 adulto, ida y vuelta y solo vuelos directos. Cambian a diario.
+- Precios de Google Flights consultados el 27 de octubre de 2026 (Estambul, Viena, Tirana y Zagreb, el 28), para 1 adulto, ida y vuelta y solo vuelos directos. Cambian a diario.
 - No incluyen maleta de bodega ni mochila grande.
 - El autobús Lille a Charleroi se estima en 45 € por persona, ida y vuelta (FlixBus o Flibco).
 - Alojamiento: apartamentos de Airbnb y Booking para 10 personas con 10 camas o más, para las fechas del viaje. En Praga se confirmaron camas individuales; en el resto, hay que revisar el tipo de cama.
@@ -69,3 +72,11 @@ Los enlaces no preseleccionan la hora del vuelo: se elige en la web de la aerol�
 - Entradas en Estambul: no cuento descuento de estudiante. La normativa del Ministerio de Cultura de Turquía solo da descuentos a quien estudia en Turquía y entrada gratis a grupos Erasmus con convenio con una institución turca. Cuento la Cisterna Basílica (unos 27 €, 1.500 liras) y los Museos Arqueológicos (15 €). La planta baja de Santa Sofía, la Mezquita Azul y el Gran Bazar son gratis; la galería de Santa Sofía cuesta 25 €, Topkapı unos 49 € y la Torre de Gálata 30 €.
 - Comida y transporte en Estambul: no pude consultar Numbeo (bloquea el acceso); uso guías de 2026 con unas 55 liras por euro. Lokanta de 350 a 650 liras, cena de gama media de 700 a 1.200, unos 42 liras por viaje. Traslado desde Sabiha Gökçen en metro M4 y Marmaray (unos 3 € por trayecto, más la Istanbulkart, unos 3 €); en taxi saldría a 30 o 50 € por coche.
 - Clima de Estambul en diciembre: unos 11 grados de día y 5 de noche, con lluvia la mitad de los días.
+- Viena, Tirana y Zagreb salen solo de Charleroi: desde Lille no hay directo a ninguna de las tres. Viena y Zagreb son de Ryanair (operado por Lauda Europe) y solo vuelan algunos días; Tirana tiene Ryanair y Wizz Air casi a diario. Los precios por tramo se suman (cada aerolínea cobra ida y vuelta por separado) y coinciden con los de ida y vuelta de Google Flights.
+- Viena: mejor combinación, del 12 al 17 por 64 € (5 noches); con 4 noches, solo del 10 al 14 por 142 €. Sale lunes, jueves y sábado.
+- Tirana: del 13 al 17 por 40 € con Ryanair (la ida a las 6:30); con Wizz Air, 51 €.
+- Zagreb: del 14 al 18 por 56 € y del 10 al 14 por 57 €. Para Croacia solo hay directo a Zagreb: sin vuelos directos a Split, Dubrovnik ni Zadar el 13 y el 17 de diciembre.
+- Alojamiento (Booking, 4 noches para 10): Viena, Kienmayer Apartment, 1.177 €, a 4,7 km del centro (6 camas individuales, 3 sofás cama y 2 dobles); Tirana, Tirana Sunny Bliss Villa, 576 €, a 1,6 km (6 individuales, 3 sofás cama y 2 dobles); Zagreb, Pamer Apartments, 1.189 €, a 1,4 km (6 individuales y 6 literas). Lo más barato en Viena (unos 730 €) son apartamentos con camas dobles y a más de 9 km, así que no los usé.
+- Comida y transporte: no pude consultar Numbeo; uso guías de 2026. Zagreb: menú de mediodía de 6 a 9 €, billete diario de tranvía 3,98 €, autobús del aeropuerto 8 €. Viena: comida económica de unos 16 a 19 €, billete de 24 horas 10,20 € (ya no hay de 72). Tirana: comida local de hasta 10 €, autobús urbano 0,4 €, autobús del aeropuerto unos 4 €.
+- Entradas: Viena, Belvedere con tarifa de estudiante (19 €) y 5 € de otra visita; Tirana, Bunk'Art 1 y 2 con entrada combinada (unos 12 €); Zagreb, Museo de las Relaciones Rotas (7 €). No encontré descuentos de estudiante en Tirana ni en Zagreb.
+- Clima en diciembre: Viena 4 y −1 grados; Tirana 13 y 5, con lluvia casi la mitad de los días; Zagreb 5 y −1. Son medias de fuentes secundarias.
