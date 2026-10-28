@@ -1,6 +1,6 @@
 # Fin de Erasmus: comparador de vuelos
 
-Comparador interactivo de vuelos directos desde Lille y Charleroi a Atenas, Praga, Marrakech, Essaouira, Tánger y Budapest, entre el 10 y el 18 de diciembre de 2026. El miércoles 9 queda fuera porque ya no se puede viajar ese día.
+Comparador interactivo de vuelos directos desde Lille y Charleroi a Atenas, Praga, Marrakech, Essaouira, Tánger, Budapest y Estambul, entre el 10 y el 18 de diciembre de 2026. El miércoles 9 queda fuera porque ya no se puede viajar ese día.
 
 - Elige tus días tocando la ida y la vuelta en la cinta de fechas.
 - Filtra por origen, duración, número de personas y ritmo de gasto, y decide si sumas el autobús Lille a Charleroi. Los filtros están en un desplegable que, cerrado, resume en etiquetas lo que has elegido.
@@ -34,6 +34,7 @@ Las fotos son de Wikimedia Commons con licencia libre y están en `img/`: `<dest
 | Essaouira | Mustang Joe | CC0 |
 | Tánger | Diego Delso | CC BY-SA 4.0 |
 | Budapest | Wilfredor | CC0 |
+| Estambul | Benh Lieu Song | CC BY-SA 3.0 |
 
 Para cambiar una foto, sustituye los dos archivos y actualiza su entrada en `photos`. `pos` es el punto de enfoque del recorte.
 
@@ -43,13 +44,14 @@ Los botones abren la web de la aerolínea con la ruta, las fechas y el número d
 
 - easyJet: `https://www.easyjet.com/deeplink?...` (comprobado).
 - Ryanair: `https://www.ryanair.com/es/es/trip/flights/select?...` (comprobado, también con 10 pasajeros).
+- Pegasus: `https://web.flypgs.com/flexible-search?...` (comprobado: abre el calendario de precios con la ruta, las fechas y los pasajeros ya marcados; el formato `/booking?...` no mostró vuelos).
 - Wizz Air: `https://www.wizzair.com/es-es/booking/select-flight/...` (la web reconoce el formato, pero en la prueba no llegó a mostrar vuelos).
 
 Los enlaces no preseleccionan la hora del vuelo: se elige en la web de la aerolínea. Los formatos no están documentados oficialmente y pueden cambiar.
 
 ## De dónde salen los datos
 
-- Precios de Google Flights consultados el 27 de octubre de 2026, para 1 adulto, ida y vuelta y solo vuelos directos. Cambian a diario.
+- Precios de Google Flights consultados el 27 de octubre de 2026 (Estambul, el 28), para 1 adulto, ida y vuelta y solo vuelos directos. Cambian a diario.
 - No incluyen maleta de bodega ni mochila grande.
 - El autobús Lille a Charleroi se estima en 45 € por persona, ida y vuelta (FlixBus o Flibco).
 - Alojamiento: apartamentos de Airbnb y Booking para 10 personas con 10 camas o más, para las fechas del viaje. En Praga se confirmaron camas individuales; en el resto, hay que revisar el tipo de cama.
@@ -62,3 +64,8 @@ Los enlaces no preseleccionan la hora del vuelo: se elige en la web de la aerol�
 - Alojamiento en Marrakech: riads para 10 con 10 camas o más desde unos 19 € por persona y noche (La Casa Koutoubia y Riad Nolya, a unos 760 y 780 € las 4 noches) hasta unos 33 €.
 - Con 10 personas, easyJet gestiona la reserva como grupo. Al comprobarlo, Praga salía a 55,29 € por persona en lugar de 54,94 €.
 - Essaouira y Tánger salen solo de Charleroi (Ryanair). Su alojamiento sale de Booking (por ejemplo, Résidence Louzani en Essaouira, con 10 camas individuales, a unos 660 € las 4 noches) y es el menos verificado: revisa el tipo de cama.
+- Estambul: solo hay vuelo directo desde Charleroi, con Pegasus a Sabiha Gökçen (no hay desde Lille). El billete de vuelta cuesta unos 57 € cualquier día (calendario de Pegasus), así que el precio depende del día de ida: el 10 sale a 128 € ida y vuelta y el 15, a 205 €. El precio de Google Flights y el de Pegasus difieren en 1 € por tramo.
+- Alojamiento en Estambul: Sultanahmet Corner Apart (Booking), con 2 apartamentos para 10 con 8 camas individuales y 2 dobles (más 2 sofás cama), a unos 15 min a pie de Santa Sofía y del Gran Bazar según Google Maps; unos 713 € las 4 noches en la ficha del apartamento, es decir, unos 18 € por persona y noche (la búsqueda mostraba 577 €, unos 14 €, con un descuento que pide iniciar sesión). En Airbnb lo más barato con 10 camas salía a unos 18 € por persona y noche (dúplex de 3 dormitorios en Galata, 740 €).
+- Entradas en Estambul: no cuento descuento de estudiante. La normativa del Ministerio de Cultura de Turquía solo da descuentos a quien estudia en Turquía y entrada gratis a grupos Erasmus con convenio con una institución turca. Cuento la Cisterna Basílica (unos 27 €, 1.500 liras) y los Museos Arqueológicos (15 €). La planta baja de Santa Sofía, la Mezquita Azul y el Gran Bazar son gratis; la galería de Santa Sofía cuesta 25 €, Topkapı unos 49 € y la Torre de Gálata 30 €.
+- Comida y transporte en Estambul: no pude consultar Numbeo (bloquea el acceso); uso guías de 2026 con unas 55 liras por euro. Lokanta de 350 a 650 liras, cena de gama media de 700 a 1.200, unos 42 liras por viaje. Traslado desde Sabiha Gökçen en metro M4 y Marmaray (unos 3 € por trayecto, más la Istanbulkart, unos 3 €); en taxi saldría a 30 o 50 € por coche.
+- Clima de Estambul en diciembre: unos 11 grados de día y 5 de noche, con lluvia la mitad de los días.

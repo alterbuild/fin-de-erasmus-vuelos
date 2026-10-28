@@ -1,10 +1,10 @@
 /*
   Datos de la comparativa. Para actualizar precios, edita solo este archivo.
-  Precios: Google Flights, 27 de octubre de 2026, 1 adulto, ida y vuelta,
-  solo vuelos directos, sin maleta de bodega.
+  Precios: Google Flights, 27 de octubre de 2026 (Estambul, 28 de octubre), 1 adulto,
+  ida y vuelta, solo vuelos directos, sin maleta de bodega.
 */
 window.TRIP = {
-  checked: "27 de octubre de 2026",
+  checked: "27 de octubre de 2026 (Estambul, el 28)",
   bus: 45, // autobús Lille–Charleroi, ida y vuelta, por persona (estimación)
   days: [
     { n: 10, w: "jue", long: "jueves" },
@@ -52,6 +52,12 @@ window.TRIP = {
       pos: "84% 50%", by: "Diego Delso", lic: "CC BY-SA 4.0",
       licUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
       page: "https://commons.wikimedia.org/wiki/File:Faro_del_cabo_Espartel,_Marruecos,_2015-12-11,_DD_02.JPG"
+    },
+    estambul: {
+      alt: "El patio de la Mezquita Azul de Estambul iluminado al anochecer, con sus minaretes",
+      pos: "50% 50%", by: "Benh Lieu Song", lic: "CC BY-SA 3.0",
+      licUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      page: "https://commons.wikimedia.org/wiki/File:Blue_Mosque_Courtyard_Dusk_Wikimedia_Commons.jpg"
     },
     budapest: {
       alt: "El Puente de las Cadenas de Budapest iluminado de noche, con el Danubio y el castillo detrás",
@@ -145,6 +151,19 @@ window.TRIP = {
         transfer: 5, transferNote: "Autobús o taxi compartido",
         sights: 8, sightsNote: "Museo de la Kasbah y otra visita (unos 8 €, estimación)"
       }
+    },
+    estambul: {
+      name: "Estambul", country: "Turquía", code: "SAW",
+      flight: "3 h 20 min", hi: 11, lo: 5, sky: "cloud",
+      skyText: "Gris y con lluvia la mitad de los días",
+      vibe: "Santa Sofía, la Mezquita Azul, el Gran Bazar y los ferris del Bósforo, con frío húmedo.",
+      cost: {
+        lodging: 18, lodgingRange: [14, 22],
+        food: { ajustado: 17, normal: 35 },
+        local: 4,
+        transfer: 8, transferNote: "Metro M4 y Marmaray desde Sabiha Gökçen (hora y media), más la Istanbulkart (unos 3 €)",
+        sights: 42, sightsNote: "Cisterna Basílica (unos 27 €) y Museos Arqueológicos (15 €). Santa Sofía (planta baja), la Mezquita Azul y el Gran Bazar son gratis"
+      }
     }
   },
   /*
@@ -218,4 +237,25 @@ window.TRIP = {
   add("tanger", "CRL", "Ryanair", 12, 16, 90, "13:10", "15:05");
   add("tanger", "CRL", "Ryanair", 13, 17, 93, "21:25", "23:20");
   add("tanger", "CRL", "Ryanair", 14, 18, 80, "21:00", "22:55");
+
+  // Estambul (Sabiha Gökçen), desde Charleroi (Pegasus). La vuelta cuesta unos 57 € cualquier día.
+  const ist = (out, ret, price, dep, arr, extra) =>
+    add("estambul", "CRL", "Pegasus", out, ret, price, dep, arr, Object.assign({ retDep: ret === 18 ? "12:20" : "12:25", retArr: ret === 18 ? "13:50" : "13:55" }, extra));
+  ist(10, 13, 128, "11:10", "16:30");
+  ist(10, 14, 128, "11:10", "16:30");
+  ist(10, 15, 128, "11:10", "16:30");
+  ist(10, 17, 128, "11:10", "16:30");
+  ist(11, 14, 154, "14:45", "20:00");
+  ist(11, 15, 154, "14:45", "20:00");
+  ist(11, 16, 154, "14:45", "20:00");
+  ist(12, 16, 183, "15:00", "20:20");
+  ist(13, 16, 185, "11:25", "16:45");
+  ist(13, 17, 185, "11:25", "16:45");
+  ist(13, 18, 185, "11:25", "16:45");
+  ist(14, 18, 184, "11:25", "16:45");
+  // Mismas fechas con otro horario
+  ist(13, 17, 189, "18:00", "23:20");
+  ist(13, 17, 191, "15:00", "20:20");
+  ist(11, 15, 157, "11:25", "16:45");
+  ist(12, 16, 191, "18:00", "23:20");
 })();

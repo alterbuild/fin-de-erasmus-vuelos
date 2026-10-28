@@ -3,7 +3,7 @@
   "use strict";
 
   const T = window.TRIP;
-  const ORDER = ["atenas", "praga", "marrakech", "essaouira", "tanger", "budapest"];
+  const ORDER = ["atenas", "praga", "marrakech", "essaouira", "tanger", "budapest", "estambul"];
   const BUS = T.bus;
   const COLOR = {
     atenas: "var(--atenas)",
@@ -11,11 +11,12 @@
     marrakech: "var(--marrakech)",
     essaouira: "var(--essaouira)",
     tanger: "var(--tanger)",
-    budapest: "var(--budapest)"
+    budapest: "var(--budapest)",
+    estambul: "var(--estambul)"
   };
   const ON = {
     atenas: "#fff", praga: "#fff", marrakech: "var(--ink)",
-    essaouira: "#fff", tanger: "#fff", budapest: "#fff"
+    essaouira: "#fff", tanger: "#fff", budapest: "#fff", estambul: "#fff"
   };
 
   const state = {
@@ -60,7 +61,8 @@
     marrakech: '<path d="M56 114V72C56 34 78 14 100 14S144 34 144 72V114"/><path d="M76 114V76C76 52 88 38 100 38S124 52 124 76V114"/>',
     essaouira: '<path d="M10 106H190"/><path d="M16 106V66H40V78H64V66H88V78H112V66H136V78H160V66H184V106"/><circle cx="150" cy="30" r="11"/><path d="M60 38 70 26 80 38M70 26V12"/>',
     tanger: '<path d="M86 108 95 48H115L124 108Z"/><path d="M92 48V36H118V48"/><path d="M105 36V16"/><path d="M96 24 114 24"/><path d="M8 116C28 106 48 124 68 116S108 124 128 116S168 106 192 116"/>',
-    budapest: '<path d="M36 104C36 58 66 34 100 34S164 58 164 104"/><path d="M24 104H176"/><path d="M100 34V8"/><circle cx="30" cy="30" r="7"/><circle cx="174" cy="52" r="5"/><circle cx="48" cy="58" r="3.5"/>'
+    budapest: '<path d="M36 104C36 58 66 34 100 34S164 58 164 104"/><path d="M24 104H176"/><path d="M100 34V8"/><circle cx="30" cy="30" r="7"/><circle cx="174" cy="52" r="5"/><circle cx="48" cy="58" r="3.5"/>',
+    estambul: '<path d="M12 108H188"/><path d="M58 108V74C58 48 78 32 100 32S142 48 142 74V108"/><path d="M100 32V14"/><path d="M30 108V90C30 78 40 72 58 72M170 108V90C170 78 160 72 142 72"/><path d="M12 108V50L17 38 22 50V108M178 108V50L183 38 188 50V108"/>'
   };
 
   /* Datos derivados */
@@ -132,6 +134,10 @@
         "&destinationIata=" + code + "&tpAdults=" + n + "&tpTeens=0&tpChildren=0&tpInfants=0" +
         "&tpStartDate=" + a + "&tpEndDate=" + b + "&tpDiscount=0&tpPromoCode=&tpOriginIata=" + o.from +
         "&tpDestinationIata=" + code;
+    }
+    if (o.airline === "Pegasus") {
+      return "https://web.flypgs.com/flexible-search?adultCount=" + n + "&arrivalPort=" + code +
+        "&departurePort=" + o.from + "&currency=EUR&dateOption=1&departureDate=" + a + "&returnDate=" + b + "&language=es";
     }
     return "https://www.wizzair.com/es-es/booking/select-flight/" + o.from + "/" + code + "/" + a + "/" + b + "/" + n + "/0/0/null";
   }
@@ -255,6 +261,12 @@
         "</article>"
       );
     }).join("");
+  }
+
+  // Con siete destinos, el último se queda solo en su fila: se abre a todo el ancho.
+  function layoutPosters() {
+    const cols = getComputedStyle($("#posters")).gridTemplateColumns.split(" ").length;
+    $("#poster-" + ORDER[ORDER.length - 1]).classList.toggle("poster--wide", cols > 1 && ORDER.length % cols === 1);
   }
 
   /* Pintado */
@@ -634,6 +646,8 @@
   buildReel();
   buildPosters();
   buildCredits();
+  layoutPosters();
+  window.addEventListener("resize", layoutPosters);
   $("#ribbon").classList.add("is-intro");
   update();
   state.ready = true;
