@@ -201,8 +201,9 @@ window.TRIP = {
       flight: "2 h 30 min", hi: 13, lo: 5, sky: "cloud",
       skyText: "Nublado, con lluvia casi la mitad de los días",
       vibe: "Plaza Skanderbeg, el barrio de Blloku, búnkeres convertidos en museos y el teleférico del Dajti. Una capital muy barata y animada.",
+      plan: "itinerario-tirana.html",
       cost: {
-        lodging: 15, lodgingRange: [14, 17],
+        lodging: 16, lodgingRange: [11, 16],
         food: { ajustado: 12, normal: 27 },
         local: 2,
         transfer: 8, transferNote: "Autobús del aeropuerto al centro, unos 4 € por trayecto",

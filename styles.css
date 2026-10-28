@@ -882,6 +882,26 @@ svg { display: block; }
 
 .poster__vibe { margin: 0; padding-inline: 4px; max-width: 34ch; }
 
+/* Enlace al itinerario de un destino */
+.poster__plan {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  min-height: 44px;
+  margin-inline: 4px;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: var(--on);
+  color: var(--c);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s var(--ease);
+}
+.poster__plan svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s var(--ease); }
+.poster__plan:hover svg { transform: translateX(3px); }
+.poster__plan:active { transform: scale(0.98); }
+
 .poster__slot:empty { display: none; }
 
 /* Los billetes se apoyan abajo para que los precios queden a la misma altura. */

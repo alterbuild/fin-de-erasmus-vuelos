@@ -9,6 +9,8 @@ Comparador interactivo de vuelos directos desde Lille y Charleroi a Atenas, Prag
 - El gráfico de barras compara el viaje completo o solo el vuelo.
 - La cabecera tiene diez puertas arqueadas con una foto de cada destino (en escritorio se abren al pasar el ratón y llevan al cartel), y cada cartel abre con su foto.
 
+- Tirana tiene además su propia página, `itinerario-tirana.html`, con el día a día del 13 al 17 de diciembre, los coches de alquiler, el alojamiento, un presupuesto que se recalcula y las fuentes.
+
 Es un sitio estático sin dependencias: HTML, CSS y JavaScript. Abre `index.html` o sírvelo con cualquier servidor.
 
 ```bash
@@ -40,6 +42,8 @@ Las fotos son de Wikimedia Commons con licencia libre y están en `img/`: `<dest
 | Zagreb | Larisa Uhryn | CC BY-SA 4.0 |
 
 Para cambiar una foto, sustituye los dos archivos y actualiza su entrada en `photos`. `pos` es el punto de enfoque del recorte.
+
+Las fotos del itinerario de Tirana (`img/it-*.jpg`) son de Pudelek (Krujë, CC BY-SA 4.0), BBB2021 (Pirámide de Tirana, CC BY-SA 4.0), StepWorld (Berat, CC BY-SA 4.0) y Tobias Klenze (Shkodër, CC BY 3.0). Cada una enlaza a su página de Commons desde la propia web.
 
 ## Botones de compra
 
@@ -76,7 +80,18 @@ Los enlaces no preseleccionan la hora del vuelo: se elige en la web de la aerol�
 - Viena: mejor combinación, del 12 al 17 por 64 € (5 noches); con 4 noches, solo del 10 al 14 por 142 €. Sale lunes, jueves y sábado.
 - Tirana: del 13 al 17 por 40 € con Ryanair (la ida a las 6:30); con Wizz Air, 51 €.
 - Zagreb: del 14 al 18 por 56 € y del 10 al 14 por 57 €. Para Croacia solo hay directo a Zagreb: sin vuelos directos a Split, Dubrovnik ni Zadar el 13 y el 17 de diciembre.
-- Alojamiento (Booking, 4 noches para 10): Viena, Kienmayer Apartment, 1.177 €, a 4,7 km del centro (6 camas individuales, 3 sofás cama y 2 dobles); Tirana, Tirana Sunny Bliss Villa, 576 €, a 1,6 km (6 individuales, 3 sofás cama y 2 dobles); Zagreb, Pamer Apartments, 1.189 €, a 1,4 km (6 individuales y 6 literas). Lo más barato en Viena (unos 730 €) son apartamentos con camas dobles y a más de 9 km, así que no los usé.
+- Alojamiento (Booking, 4 noches para 10): Viena, Kienmayer Apartment, 1.177 €, a 4,7 km del centro (6 camas individuales, 3 sofás cama y 2 dobles); Tirana, La Gioia Apartment, 648 €, a 0,7 km (5 apartamentos con 2 camas individuales cada uno; la Tirana Sunny Bliss Villa sale a 576 €, pero con camas dobles y sofás cama); Zagreb, Pamer Apartments, 1.189 €, a 1,4 km (6 individuales y 6 literas). Lo más barato en Viena (unos 730 €) son apartamentos con camas dobles y a más de 9 km, así que no los usé.
 - Comida y transporte: no pude consultar Numbeo; uso guías de 2026. Zagreb: menú de mediodía de 6 a 9 €, billete diario de tranvía 3,98 €, autobús del aeropuerto 8 €. Viena: comida económica de unos 16 a 19 €, billete de 24 horas 10,20 € (ya no hay de 72). Tirana: comida local de hasta 10 €, autobús urbano 0,4 €, autobús del aeropuerto unos 4 €.
 - Entradas: Viena, Belvedere con tarifa de estudiante (19 €) y 5 € de otra visita; Tirana, Bunk'Art 1 y 2 con entrada combinada (unos 12 €); Zagreb, Museo de las Relaciones Rotas (7 €). No encontré descuentos de estudiante en Tirana ni en Zagreb.
 - Clima en diciembre: Viena 4 y −1 grados; Tirana 13 y 5, con lluvia casi la mitad de los días; Zagreb 5 y −1. Son medias de fuentes secundarias.
+
+## Itinerario de Tirana
+
+`itinerario-tirana.html` usa `itinerario.css` y `itinerario.js`. El presupuesto sale de `data.js` (vuelo, autobús, comida) y de los precios de la parte de arriba de `itinerario.js` (alquiler, seguro, gasolina, aparcamiento y entradas). Para cambiar un precio, edita solo ese bloque.
+
+- Piso: La Gioia Apartment (Booking, consultado el 28 de octubre de 2026): 5 apartamentos de 2 camas individuales, 648 € las 4 noches para 10. Tarifa no reembolsable, pago en efectivo en el alojamiento y fianza de 50 € en efectivo. Booking anuncia parking sin dar detalles.
+- Coches: precios de Kayak el 28 de octubre para recoger el 13 a las 10:00 y devolver el 17 a las 7:00, en el aeropuerto: Fiat Panda de 5 plazas 23 € y Kia Stonic 25 € los cuatro días. La oferta abierta (Panda de DiscoverCars con Sicily by Car) lleva 840 € de franquicia, no cubre ruedas ni lunas y pide 400 € de fianza. El seguro a todo riesgo (unos 9 € al día por coche) es una estimación propia.
+- Gasolina: unos 186 lek el litro de media (Discover Cars) y unos 92 lek por euro en octubre de 2026; 590 km por coche a 6 litros cada 100 km, unos 71 € por coche.
+- Entradas: Krujë 5 €, Bunk'Art 1 y 2 8 €, Berat 8 €, Shkodër 10 €, y la telecabina del Dajti, unos 16 €, como extra. Salen de guías y reseñas, que a veces se contradicen; sin descuento de estudiante.
+- Horarios: el Museo Histórico Nacional está cerrado hasta marzo de 2028; la telecabina del Dajti cierra los martes; el museo Onufri de Berat cierra los lunes en invierno; el castillo de Rozafa abre de 8:00 a 16:00 de noviembre a abril.
+- Distancias y tiempos de conducción (Berat unos 100 a 120 km, Shkodër unos 110 km, Krujë 30 km) son aproximaciones de las guías: confírmalas con un mapa.

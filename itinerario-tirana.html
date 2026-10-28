@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tirana en coche: itinerario de 5 días</title>
+  <meta name="description" content="Itinerario por Tirana y alrededores del 13 al 17 de diciembre de 2026 para 10 personas: día a día, dos coches de alquiler, un piso con 10 camas individuales y el coste por persona.">
+  <meta name="theme-color" content="#E7ECF4">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='16' height='16' fill='%231F4FD8'/%3E%3Crect x='16' width='16' height='16' fill='%238F1D3A'/%3E%3Crect y='16' width='16' height='16' fill='%23F2A900'/%3E%3Crect x='16' y='16' width='16' height='16' fill='%230B7A75'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="itinerario.css">
+</head>
+<body class="it">
+  <a class="skip" href="#dias">Ir al día a día</a>
+
+  <header class="it-hero wrap">
+    <a class="it-back" href="index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      Comparador de vuelos
+    </a>
+    <div class="it-hero__grid">
+      <div>
+        <p class="it-kicker">Del domingo 13 al jueves 17 de diciembre de 2026</p>
+        <h1>Tirana, con coche</h1>
+        <p class="hero__intro">Un día y medio para la capital y tres excursiones con dos coches de alquiler: Krujë, Berat y Shkodër. Dormís en un piso con 10 camas individuales a diez minutos a pie del centro.</p>
+        <ul class="it-chips" aria-label="Datos del viaje">
+          <li>10 personas</li>
+          <li>2 coches</li>
+          <li>4 noches</li>
+          <li>Unos <b id="hero-total">270 €</b> por persona</li>
+        </ul>
+      </div>
+      <figure class="it-hero__photo">
+        <img src="img/tirana.jpg" alt="La plaza Skanderbeg de Tirana, con la estatua del héroe nacional y la torre del reloj" width="1200" height="800" decoding="async" fetchpriority="high">
+        <figcaption><a href="https://commons.wikimedia.org/wiki/File:Tirana_-_Skanderbeg_Square_(Sheshi_Sk%C3%ABnderbej)_-_by_Pudelek.jpg" target="_blank" rel="noopener">Foto: Pudelek</a></figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <nav class="it-nav" aria-label="Secciones">
+    <div class="wrap">
+      <ul>
+        <li><a href="#resumen">Resumen</a></li>
+        <li><a href="#opiniones">Lo que dice la gente</a></li>
+        <li><a href="#dias">Día a día</a></li>
+        <li><a href="#coches">Coches</a></li>
+        <li><a href="#alojamiento">Alojamiento</a></li>
+        <li><a href="#coste">Cuánto cuesta</a></li>
+        <li><a href="#planb">Plan B</a></li>
+        <li><a href="#antes">Antes de ir</a></li>
+        <li><a href="#fuentes">Fuentes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="it-sec wrap" id="resumen" aria-labelledby="t-resumen">
+      <h2 class="section-title" id="t-resumen">En resumen</h2>
+      <ul class="it-tiles">
+        <li class="it-tile">
+          <p class="it-tile__k">Vuelo</p>
+          <p class="it-tile__v">40 €</p>
+          <p>Ryanair desde Charleroi: ida el domingo 13 a las 6:30 y vuelta el jueves 17 a las 9:30. Aterrizáis a las 9:00.</p>
+        </li>
+        <li class="it-tile">
+          <p class="it-tile__k">Piso</p>
+          <p class="it-tile__v">648 €</p>
+          <p>La Gioia: 5 apartamentos con 2 camas individuales cada uno. Unos 16 € por persona y noche.</p>
+        </li>
+        <li class="it-tile">
+          <p class="it-tile__k">Coches</p>
+          <p class="it-tile__v">2 × 25 €</p>
+          <p>Dos coches de 5 plazas durante 4 días. Lo que más pesa es la gasolina: unos 71 € por coche.</p>
+        </li>
+        <li class="it-tile it-tile--main">
+          <p class="it-tile__k">Total por persona</p>
+          <p class="it-tile__v" id="sum-total">270 €</p>
+          <p>Con autobús a Charleroi, comida ajustada, entradas, gasolina y seguro. <a href="#coste">Cámbialo a tu gusto.</a></p>
+        </li>
+      </ul>
+      <p class="it-lead">Tus amigos tienen razón en las dos cosas. Tirana se recorre en un día y medio, y con un coche barato se llega a mucho más. La pega es diciembre: anochece a las 16:10, así que las excursiones largas salen temprano y vuelven con el sol puesto.</p>
+    </section>
+
+    <section class="it-sec wrap" id="opiniones" aria-labelledby="t-op">
+      <h2 class="section-title" id="t-op">Lo que dice la gente</h2>
+      <p class="it-lead">Lo que he leído en guías y blogs de viaje sobre Tirana y sus alrededores. Reddit no me deja abrirlo desde aquí, así que no sale ningún hilo.</p>
+      <ul class="it-say">
+        <li class="it-card">
+          <h3>La capital se ve en uno o dos días</h3>
+          <p>Las guías de 48 horas dejan el segundo día para salir de la ciudad: <a href="https://www.chasingthedonkey.com/a-weekend-in-tirana-in-48-hours/" target="_blank" rel="noopener">Chasing the Donkey</a> lo dedica a Krujë, y <a href="https://www.travellingking.com/48-hours-in-tirana-2-day-itinerary/" target="_blank" rel="noopener">Travelling King</a> a la cueva de Pellumbas y el cañón de Erzen. Lonely Planet también tiene su <a href="https://www.lonelyplanet.com/articles/48-hours-in-tirana" target="_blank" rel="noopener">guía de 48 horas</a>.</p>
+        </li>
+        <li class="it-card">
+          <h3>Con coche se llega a lo mejor</h3>
+          <p>Berat, Krujë, Durrës, Shkodër y el lago Bovilla están a entre media hora y dos horas. <a href="https://www.albania-spirit.com/guides/day-trips-from-tirana/" target="_blank" rel="noopener">Albania Spirit</a> dice que Apollonia y Bovilla son difíciles sin coche, y <a href="https://www.goatsontheroad.com/day-trips-from-tirana/" target="_blank" rel="noopener">Goats on the Road</a>, que en Shkodër el coche ayuda porque la estación queda lejos de lo que ver.</p>
+        </li>
+        <li class="it-card">
+          <h3>Alquilar es barato</h3>
+          <p><a href="https://adventurealbania.com/renting-a-car-in-albania/" target="_blank" rel="noopener">Adventure Albania</a> habla de desde 25 € al día fuera de temporada (30 € con seguro completo) y del doble en julio y agosto. El 28 de octubre, <a href="https://www.kayak.es/cars/Tirana-Rinas-Airport-TIA/2026-12-13-10h/2026-12-17-7h?sort=price_a" target="_blank" rel="noopener">Kayak</a> ofrecía coches de 5 plazas por 23 a 25 € los cuatro días enteros, aunque con 840 € de franquicia.</p>
+        </li>
+        <li class="it-card">
+          <h3>Conducir allí tiene truco</h3>
+          <p>Las carreteras entre ciudades grandes están bien. En las secundarias hay baches, ganado en la calzada y señales que faltan, y la misma guía aconseja llegar antes de que anochezca. El límite de alcohol es de 0,01 %: en la práctica, cero para quien conduzca.</p>
+        </li>
+        <li class="it-card">
+          <h3>En invierno cierran cosas</h3>
+          <p>Travelling King avisa de que muchas atracciones y restaurantes cierran pronto o del todo entre diciembre y febrero. Lo que sí he comprobado: el Museo Histórico Nacional está <a href="https://euronews.al/en/?p=67413" target="_blank" rel="noopener">cerrado hasta marzo de 2028</a> y la <a href="https://dajtiekspres.com/rates-and-opening-hours/" target="_blank" rel="noopener">telecabina del Dajti</a> no abre los martes.</p>
+        </li>
+        <li class="it-card">
+          <h3>El sur es otra excursión</h3>
+          <p>Albania Spirit desaconseja Gjirokastër y el Ojo Azul en un solo día (unos 230 km) y recomienda dormir allí. Goats on the Road deja las playas de Ksamil para de mayo a septiembre. Por eso no están en este plan.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="it-sec wrap" id="dias" aria-labelledby="t-dias">
+      <h2 class="section-title" id="t-dias">Día a día</h2>
+      <p class="it-lead">Todo parte de un solo piso en Tirana: no hay que hacer maletas ni buscar alojamiento cada noche. Las horas son locales (las mismas que en Bélgica).</p>
+
+      <div class="it-plan">
+        <aside class="it-map" aria-label="Mapa esquemático de las excursiones">
+          <svg viewBox="0 0 340 430" role="img" aria-labelledby="map-t map-d">
+            <title id="map-t">Mapa esquemático de las excursiones desde Tirana</title>
+            <desc id="map-d">Krujë a 45 minutos al norte, Dajti a 25 minutos al este, Berat a unas 2 horas al sur, Shkodër a casi 2 horas al norte y Durrës a 50 minutos al oeste.</desc>
+            <path class="map-sea" d="M37 24 L50 91 L126 111 L100 156 L71 166 L84 199 L67 231 L79 281 L50 336 L33 374 L71 411 L0 411 L0 24 Z"/>
+            <path class="map-coast" d="M37 24 L50 91 L126 111 L100 156 L71 166 L84 199 L67 231 L79 281 L50 336 L33 374 L71 411"/>
+            <text class="map-sea-label" x="12" y="250" transform="rotate(-90 12 250)">Mar Adriático</text>
+
+            <path class="map-road map-road--b" d="M226 229 L71 231"/>
+            <path class="map-road" d="M226 229 L196 190 L170 140 L151 117 L96 44"/>
+            <path class="map-road" d="M226 229 L250 300 L281 386"/>
+            <path class="map-road" d="M226 229 L272 219"/>
+            <path class="map-road" d="M184 209 L214 184 L226 229"/>
+
+            <g class="map-time">
+              <text x="238" y="318">≈ 2 h</text>
+              <text x="108" y="82" text-anchor="end">≈ 1 h 50</text>
+              <text x="222" y="204" text-anchor="start" dx="4">45 min</text>
+              <text x="262" y="244">25 min</text>
+              <text x="146" y="246" text-anchor="middle">50 min</text>
+            </g>
+
+            <g class="map-place">
+              <circle cx="96" cy="44" r="7"/><text x="108" y="48">Shkodër</text>
+              <circle cx="151" cy="117" r="4"/><text x="161" y="121" class="map-small">Lezhë</text>
+              <circle cx="214" cy="184" r="7"/><text x="226" y="178">Krujë</text>
+              <circle cx="184" cy="209" r="4"/><text x="174" y="213" class="map-small" text-anchor="end">Aeropuerto</text>
+              <circle cx="272" cy="219" r="6"/><text x="282" y="214">Dajti</text>
+              <circle cx="281" cy="386" r="7"/><text x="291" y="390">Berat</text>
+              <circle cx="71" cy="231" r="6" class="map-b"/><text x="80" y="226" class="map-b-label">Durrës</text>
+              <circle cx="226" cy="229" r="10" class="map-home"/><text x="226" y="256" text-anchor="middle" class="map-home-label">Tirana</text>
+            </g>
+          </svg>
+          <p class="map-note">Esquema, no está a escala. Los tiempos son los de las guías, sin tráfico.</p>
+        </aside>
+
+        <div class="it-days">
+          <article class="plan-day" id="dia-13" aria-labelledby="h-13">
+            <figure class="plan-day__photo" style="--pos:30% 50%">
+              <img src="img/it-kruje.jpg" alt="El castillo de Krujë con el museo Skanderbeg y la montaña detrás" width="900" height="600" loading="lazy" decoding="async">
+              <figcaption><a href="https://commons.wikimedia.org/wiki/File:Kruja_Castle_(by_Pudelek).JPG" target="_blank" rel="noopener">Foto: Pudelek</a></figcaption>
+            </figure>
+            <header class="plan-day__head">
+              <p class="plan-day__date" aria-hidden="true"><span>Dom</span><b>13</b></p>
+              <div>
+                <h3 id="h-13">Aterrizar y subir a Krujë</h3>
+                <ul class="tags"><li class="tag tag--good">Con coche</li><li class="tag">≈ 60 km</li><li class="tag">≈ 1 h 15 al volante</li></ul>
+              </div>
+            </header>
+            <ol class="stops">
+              <li><time>6:30</time><p>Despegáis de Charleroi con Ryanair. Aterrizáis en Tirana a las 9:00.</p></li>
+              <li><time>9:30</time><p>Recoged los dos coches en el aeropuerto. Antes de salir, haced fotos a la carrocería y al marcador de gasolina.</p></li>
+              <li><time>10:30</time><p><b>Krujë</b>, a unos 25 minutos. Callejead por el bazar viejo, subid al castillo y entrad en el museo Skanderbeg, dentro de la fortaleza. Las entradas se pagan solo en efectivo y en lek: unos 200 lek según <a href="https://albania.al/activity/culture/skanderbeg-national-museum-in-kruja" target="_blank" rel="noopener">albania.al</a>, y hasta 500 lek según otras guías.</p></li>
+              <li><time>13:30</time><p>Comida en el bazar. <a href="https://www.chasingthedonkey.com/a-weekend-in-tirana-in-48-hours/" target="_blank" rel="noopener">Chasing the Donkey</a> recomienda el restaurante Panorama, con vistas al pueblo y al castillo.</p></li>
+              <li><time>15:00</time><p>Bajad a Tirana (45 minutos). El check-in de La Gioia es de 13:00 a 16:00: avisa a la anfitriona de tu hora de llegada.</p></li>
+              <li><time>16:10</time><p>Se pone el sol. Paseo suave por la plaza Skanderbeg, la mezquita Et'hem Bey y la Torre del Reloj. Si ya está montado, el mercadillo de Navidad de la plaza: se espera del 5 de diciembre al 6 de enero, sin confirmar.</p></li>
+              <li><time>20:00</time><p>Cena en Blloku y a dormir pronto: muchos llevaréis despiertos desde las 3 o las 4 de la mañana.</p></li>
+            </ol>
+            <p class="it-note">El aparcamiento de la calle en Tirana es gratis los domingos: se paga de lunes a viernes, de 7:30 a 20:00 (<a href="https://takecars.com/blog/tirana-parking/" target="_blank" rel="noopener">según esta guía</a>; mira las señales de cada calle).</p>
+          </article>
+
+          <article class="plan-day" id="dia-14" aria-labelledby="h-14">
+            <figure class="plan-day__photo" style="--pos:50% 45%">
+              <img src="img/it-tirana.jpg" alt="La Pirámide de Tirana, convertida en espacio cultural, con un cielo azul" width="900" height="600" loading="lazy" decoding="async">
+              <figcaption><a href="https://commons.wikimedia.org/wiki/File:Pyramid_of_Tirana_October_2023.jpg" target="_blank" rel="noopener">Foto: BBB2021</a></figcaption>
+            </figure>
+            <header class="plan-day__head">
+              <p class="plan-day__date" aria-hidden="true"><span>Lun</span><b>14</b></p>
+              <div>
+                <h3 id="h-14">Tirana a pie y el Dajti</h3>
+                <ul class="tags"><li class="tag">Mañana a pie</li><li class="tag tag--good">Tarde con coche</li><li class="tag">≈ 25 km</li></ul>
+              </div>
+            </header>
+            <ol class="stops">
+              <li><time>9:00</time><p>Desayuno en el piso o un byrek de panadería (1 a 1,5 €).</p></li>
+              <li><time>9:30</time><p>A pie por Blloku: el monumento al Postbllok, el antiguo control del barrio prohibido, y la Pirámide (entrada libre según una guía).</p></li>
+              <li><time>10:30</time><p><b>Bunk'Art 2</b>, junto a la plaza Skanderbeg: el búnker del Ministerio del Interior, hoy museo de la policía secreta comunista. En invierno abre de 9:30 a 18:30 (<a href="https://bunkart.al/2/slider/new-visiting-hours-of-bunkart-1-winter-season" target="_blank" rel="noopener">web del museo</a>).</p></li>
+              <li><time>12:15</time><p>Plaza Skanderbeg, mezquita Et'hem Bey, Torre del Reloj y el bazar nuevo, Pazari i Ri. El Museo Histórico Nacional sigue cerrado: solo se ve el mosaico de la fachada.</p></li>
+              <li><time>13:30</time><p>Comida local en Pazari i Ri o en un lokal: de 5 a 10 € con bebida.</p></li>
+              <li><time>14:45</time><p>Coches al Dajti (20 a 25 minutos). Primero <b>Bunk'Art 1</b>, el gran búnker de la Guerra Fría, a unos 10 minutos a pie de la estación de abajo.</p></li>
+              <li><time>16:00</time><p><b>Telecabina del Dajti</b> (15 minutos). Se pone el sol a las 16:10, así que subís a la hora azul y bajáis con Tirana encendida. Abre de 9:00 a 18:00 (18:30 el fin de semana). Los billetes se venden solo en la estación de abajo; los blogs dicen unos 1.500 lek, es decir, unos 16 €.</p></li>
+              <li><time>19:30</time><p>Cena en Blloku: Mullixhiu, de cocina del norte, o Komiteti, un café-museo con 25 rakis artesanos (ambos de la guía de Chasing the Donkey). Esta noche, conductor sin alcohol.</p></li>
+            </ol>
+            <p class="it-note it-note--warn">Si el Dajti está metido en las nubes, no subas: cambia la telecabina por la Casa de las Hojas (museo de la vigilancia, en el centro) o por el Grand Park y su lago.</p>
+          </article>
+
+          <article class="plan-day" id="dia-15" aria-labelledby="h-15">
+            <figure class="plan-day__photo" style="--pos:50% 50%">
+              <img src="img/it-berat.jpg" alt="Las casas blancas de Berat, la ciudad de las mil ventanas, sobre el río Osum" width="900" height="600" loading="lazy" decoding="async">
+              <figcaption><a href="https://commons.wikimedia.org/wiki/File:Berat,_the_city_on_the_Osum_River_in_central_Albania.jpg" target="_blank" rel="noopener">Foto: StepWorld</a></figcaption>
+            </figure>
+            <header class="plan-day__head">
+              <p class="plan-day__date" aria-hidden="true"><span>Mar</span><b>15</b></p>
+              <div>
+                <h3 id="h-15">Berat, la ciudad de las mil ventanas</h3>
+                <ul class="tags"><li class="tag tag--good">Con coche</li><li class="tag">≈ 250 km</li><li class="tag">≈ 4 h 30 al volante</li></ul>
+              </div>
+            </header>
+            <ol class="stops">
+              <li><time>7:30</time><p>Salid con el desayuno en la mano. Berat está a unos 100 o 120 km y las guías cuentan entre 2 y 2 h 30.</p></li>
+              <li><time>10:00</time><p>Dejad los coches abajo, cerca del río, y cruzad a pie el puente de Gorica para ver las casas de Mangalem y Gorica, las «mil ventanas», desde la orilla.</p></li>
+              <li><time>10:30</time><p><b>El castillo</b> (Kala) sigue habitado. La entrada cuesta entre 300 y 400 lek en efectivo y la taquilla abre de 9:00 a 18:00 (<a href="https://himara.net/blog/berat-castle" target="_blank" rel="noopener">Himara</a>). Dentro está el <b>Museo Onufri</b>, de iconos: en invierno abre de martes a sábado de 9:00 a 16:00, con unos 400 lek de entrada. Contad 2 o 3 horas entre los dos.</p></li>
+              <li><time>13:30</time><p>Comida: puestos junto al puente central (unos 500 a 700 lek con bebida) o sentados en Mangalem, en Lili Homemade Food (con reserva), Mangalemi o Antigoni, de 10 a 15 € con vino (<a href="https://www.albania-spirit.com/guides/best-restaurants-berat/" target="_blank" rel="noopener">Albania Spirit</a>).</p></li>
+              <li><time>15:00</time><p>Salid hacia Tirana. Llegaréis hacia las 17:00, ya de noche: que conduzca quien esté más descansado y no cambiéis de ruta.</p></li>
+              <li><time>19:30</time><p>Cena tranquila en Tirana.</p></li>
+            </ol>
+            <p class="it-note">Albania Spirit recomienda pasar una noche en Berat. Con cuatro noches en total no os cabe, así que sed puntuales a las 7:30.</p>
+          </article>
+
+          <article class="plan-day" id="dia-16" aria-labelledby="h-16">
+            <figure class="plan-day__photo" style="--pos:50% 55%">
+              <img src="img/it-shkoder.jpg" alt="Vista desde el castillo de Rozafa, en Shkodër, sobre el río Buna y el lago al fondo" width="900" height="600" loading="lazy" decoding="async">
+              <figcaption><a href="https://commons.wikimedia.org/wiki/File:2013-10-03_View_from_Rozafa_Castle,_Shkod%C3%ABr_0273.jpg" target="_blank" rel="noopener">Foto: Tobias Klenze</a></figcaption>
+            </figure>
+            <header class="plan-day__head">
+              <p class="plan-day__date" aria-hidden="true"><span>Mié</span><b>16</b></p>
+              <div>
+                <h3 id="h-16">Shkodër y su castillo sobre el lago</h3>
+                <ul class="tags"><li class="tag tag--good">Con coche</li><li class="tag">≈ 240 km</li><li class="tag">≈ 4 h al volante</li></ul>
+              </div>
+            </header>
+            <ol class="stops">
+              <li><time>7:30</time><p>Salid hacia Shkodër: unos 110 km y de 1 h 45 a 2 h. Parada opcional de 20 minutos en Lezhë, donde está la tumba de Skanderbeg.</p></li>
+              <li><time>9:30</time><p><b>Castillo de Rozafa</b>. En invierno abre de 8:00 a 16:00; la entrada ronda los 400 lek, el museo de dentro son 200 lek más y el aparcamiento, unos 150 lek (guías y reseñas, confirma al llegar). Las vistas llegan al lago y a los ríos Buna y Drin.</p></li>
+              <li><time>12:00</time><p>Calle peatonal Kolë Idromeno, con fachadas de colores y muchas bicis; el museo Marubi de fotografía (no encontré su precio) y la comida.</p></li>
+              <li><time>14:15</time><p>Si queda luz, asomaos al lago de Shkodër: en Shirokë se come pescado del lago.</p></li>
+              <li><time>14:45</time><p>Vuelta. Estáis en Tirana hacia las 17:00.</p></li>
+              <li><time>19:30</time><p>Cena de despedida con platos albaneses: tavë kosi, fërgesë, qofte, byrek. Entre 8 y 12 € por persona. Prepara la mochila y acuéstate temprano: mañana suena el despertador a las 5:30.</p></li>
+            </ol>
+            <p class="it-note it-note--warn">Plan B del día si llueve o hay cansancio: <b>Durrës</b>, a unos 50 minutos. Anfiteatro romano (unos 300 lek; los horarios varían según la fuente y una dice que cierra los lunes), paseo marítimo y museo arqueológico. A mediodía estáis de vuelta.</p>
+          </article>
+
+          <article class="plan-day plan-day--end" id="dia-17" aria-labelledby="h-17">
+            <header class="plan-day__head">
+              <p class="plan-day__date" aria-hidden="true"><span>Jue</span><b>17</b></p>
+              <div>
+                <h3 id="h-17">Volver a casa</h3>
+                <ul class="tags"><li class="tag tag--warn">Madrugón</li><li class="tag">≈ 22 km</li><li class="tag">≈ 35 min al volante</li></ul>
+              </div>
+            </header>
+            <ol class="stops">
+              <li><time>5:30</time><p>Despertador. Salís a las 5:45 hacia el aeropuerto, con la carretera vacía.</p></li>
+              <li><time>6:15</time><p>Repostad cerca del aeropuerto: los coches se devuelven con el depósito lleno, como los recogisteis.</p></li>
+              <li><time>6:30</time><p>Devolved los coches. Si el mostrador está cerrado, pregunta antes si hay buzón para las llaves, y haz fotos del coche y del marcador de gasolina.</p></li>
+              <li><time>7:00</time><p>Ya en la terminal. Despegue a las 9:30; aterrizáis en Charleroi a las 12:10. Ten a mano la hora del autobús a Lille.</p></li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="it-sec wrap" id="coches" aria-labelledby="t-coches">
+      <h2 class="section-title" id="t-coches">Los coches</h2>
+      <p class="it-lead">Diez personas caben en dos coches de 5 plazas. Los precios son del 28 de octubre de 2026 y cambian a diario.</p>
+      <ul class="it-grid">
+        <li class="it-card">
+          <h3>Cuántos y cuáles</h3>
+          <p>Dos coches de 5 plazas, recogidos el domingo 13 a las 10:00 en el aeropuerto y devueltos el jueves 17 a las 7:00. Mira que ponga «5 plazas»: hay Fiat Panda de 4 y de 5, y los de 4 son los más baratos.</p>
+          <p>Una furgoneta de 7 a 9 plazas sale desde 115 € por tres días en Kayak, pero con diez personas no os cabe en una sola, así que no compensa.</p>
+        </li>
+        <li class="it-card">
+          <h3>Qué precio sale</h3>
+          <div class="it-tablewrap it-tablewrap--flat">
+            <table class="it-table">
+              <caption class="sr">Coches de 5 plazas en Kayak, del 13 al 17 de diciembre</caption>
+              <thead><tr><th scope="col">Coche</th><th scope="col">Los 4 días</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Fiat Panda, 5 plazas</th><td>23 €</td></tr>
+                <tr><th scope="row">Kia Stonic, 5 plazas y 3 maletas</th><td>25 €</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Es el total de un coche en Kayak (recogida a las 10:00 y entrega a las 7:00). <a class="it-link" href="https://www.kayak.es/cars/Tirana-Rinas-Airport-TIA/2026-12-13-10h/2026-12-17-7h?sort=price_a" target="_blank" rel="noopener">Ver estas fechas en Kayak</a> o <a class="it-link" href="https://www.discovercars.com/albania/tirana/tia" target="_blank" rel="noopener">en Discover Cars</a>.</p>
+        </li>
+        <li class="it-card">
+          <h3>Seguro y fianza</h3>
+          <p>La oferta que abrí (un Panda de DiscoverCars con Sicily by Car) incluye seguro de colisión con 840 € de franquicia, robo y responsabilidad civil. No cubre ruedas ni lunas. Pide una fianza de 400 € al conductor principal, kilometraje ilimitado y depósito lleno a la entrega, con cancelación gratis hasta 48 horas antes.</p>
+          <p>Para quedarte sin franquicia, el seguro a todo riesgo de los comparadores suele salir por unos 9 € al día por coche. Es una estimación mía y no la comprobé: en el presupuesto la sumo y puedes quitarla.</p>
+        </li>
+        <li class="it-card">
+          <h3>Quién puede conducir</h3>
+          <ul class="it-bullets">
+            <li>El carnet español vale: Albania reconoce los de la UE y del EEE. Las agencias piden al menos un año de antigüedad.</li>
+            <li>La edad mínima es de 21 años en la mayoría de agencias, y por debajo de 25 suelen cobrar un recargo: de 5 a 15 € al día según una guía, de 15 a 40 $ según <a href="https://www.autoeurope.com/car-rental-albania" target="_blank" rel="noopener">Auto Europe</a>. Algunas piden 23 o 25. Pregunta la edad de todos antes de reservar.</li>
+            <li>La fianza va a una <b>tarjeta de crédito</b> a nombre del conductor principal. Algunas agencias aceptan débito y otras no: confírmalo por escrito.</li>
+            <li>Con 2 conductores por coche vais bien. Pregunta cuánto cuesta añadir un segundo.</li>
+          </ul>
+        </li>
+        <li class="it-card">
+          <h3>Gasolina y aparcamiento</h3>
+          <p>La gasolina cuesta de media unos 186 lek el litro (entre 173 y 208 según <a href="https://www.discovercars.com/albania/tirana/tia" target="_blank" rel="noopener">Discover Cars</a>), es decir, unos 2 € con el euro a unos 92 lek en octubre de 2026 (<a href="https://www.exchange-rates.org/exchange-rate-history/all-eur-2026-10-01" target="_blank" rel="noopener">cambio</a>).</p>
+          <p>Cuento unos 590 km por coche y 6 litros a los 100: 71 € por coche, 7 € por persona. Es lo que más pesa. En Tirana, las zonas de pago van de 20 a 100 lek la hora de lunes a viernes de 7:30 a 20:00 (<a href="https://takecars.com/blog/tirana-parking/" target="_blank" rel="noopener">guía</a>, con datos antiguos). Pregunta a la anfitriona dónde aparcar: Booking dice que hay parking, sin más detalle. Cuento 15 € por coche en total.</p>
+          <p>No encontré peajes en estas rutas. Si salta alguno, serán un par de euros.</p>
+        </li>
+        <li class="it-card">
+          <h3>Reglas del volante</h3>
+          <ul class="it-bullets">
+            <li>Alcohol: <b>0,01 %</b>. Cada noche, un conductor sin una gota.</li>
+            <li>Velocidad: 40 km/h en población y 80 fuera; 90 en autovía y 110 en autopista (<a href="https://adventurealbania.com/renting-a-car-in-albania/" target="_blank" rel="noopener">Adventure Albania</a>).</li>
+            <li>Las luces: unas fuentes dicen que son obligatorias de día todo el año y otras que solo de noche. Llevadlas siempre puestas y listo.</li>
+            <li>El móvil solo con manos libres, y ojo con las multas: la agencia las puede cargar a tu tarjeta con unos 20 a 40 € de gestión (<a href="https://www.triplinkhub.com/en/blog/albania-driving-rules-fines-police" target="_blank" rel="noopener">TripLinkHub</a>).</li>
+            <li>Baches, ganado y adelantamientos al límite: conduce a la defensiva y vuelve antes de que anochezca.</li>
+          </ul>
+        </li>
+        <li class="it-card">
+          <h3>Devolverlos a las 6:30</h3>
+          <p>El vuelo sale a las 9:30 y los coches se devuelven antes de las 7:00. Avis anuncia su oficina del aeropuerto como abierta 24 horas; Enterprise, National y Alamo dejan aparcar y echar la llave en un buzón; y alguna agencia cobra un extra fuera de horario. <b>Pregunta por escrito</b> antes de reservar si hay buzón, si cobran un extra y si piden avisar de la devolución.</p>
+        </li>
+        <li class="it-card it-card--wide">
+          <h3>¿Y sin coche?</h3>
+          <p>Salen unos 29 € por persona entre alquiler, seguro, gasolina y aparcamiento. En autobús, las tres excursiones saldrían por unos 20 € por persona (<a href="https://www.albania-spirit.com/guides/day-trips-from-tirana/" target="_blank" rel="noopener">Albania Spirit</a>: Berat, de 3 a 4 € por trayecto; Shkodër, de 4 a 5 €; Krujë, unos 2 €). El coche cuesta unos 9 € más, pero ganáis horas: a Berat el autobús tarda unas 2 h 45, y en diciembre, con el sol a las 16:10, esas horas son la excursión.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="it-sec wrap" id="alojamiento" aria-labelledby="t-aloj">
+      <h2 class="section-title" id="t-aloj">Dónde dormir</h2>
+      <div class="it-pick">
+        <div>
+          <p class="it-pick__k">La elegida</p>
+          <h3>La Gioia Apartment</h3>
+          <p class="it-pick__sub">Rruga Bako Dervishaj 4, Tirana · a 0,7 km del centro · 9,0 sobre 820 opiniones</p>
+          <p>Son <b>5 apartamentos de un dormitorio</b>, de 16 m², con <b>2 camas individuales</b> cada uno, además de baño y cocina propios, aire acondicionado y wifi. Es lo más parecido a diez camas separadas que he encontrado: sin camas dobles ni sofás cama.</p>
+          <p class="it-price"><b>648 €</b> las 4 noches para los 10, unos 16 € por persona y noche.</p>
+          <a class="btn it-btn" href="https://www.booking.com/hotel/al/rei-apartaments-tirana.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">Ver en Booking
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+        <ul class="it-pick__list">
+          <li><b>Entrada</b> de 13:00 a 16:00 y <b>salida</b> de 8:00 a 11:00. Aterrizáis a las 9:00: pregunta si podéis dejar las mochilas.</li>
+          <li><b>Pago en efectivo</b> al llegar, con una fianza de 50 € también en efectivo.</li>
+          <li>La tarifa es <b>no reembolsable</b>. Reserva solo cuando tengáis los vuelos cerrados.</li>
+          <li>Silencio de 22:00 a 7:00, sin fiestas y con una edad mínima de 18 años.</li>
+          <li>Booking anuncia parking, sin decir si es gratis ni cuántas plazas: pregúntalo.</li>
+        </ul>
+      </div>
+
+      <h3 class="it-sub">Otras opciones para 10</h3>
+      <div class="it-tablewrap">
+        <table class="it-table it-table--wide">
+          <caption class="sr">Alojamientos en Tirana para 10 personas, del 13 al 17 de diciembre</caption>
+          <thead>
+            <tr><th scope="col">Alojamiento</th><th scope="col">4 noches</th><th scope="col">Por persona y noche</th><th scope="col">Camas</th><th scope="col">Centro</th><th scope="col">Nota</th></tr>
+          </thead>
+          <tbody>
+            <tr class="is-pick">
+              <th scope="row"><a href="https://www.booking.com/hotel/al/rei-apartaments-tirana.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">La Gioia Apartment</a></th>
+              <td>648 €</td><td>16 €</td><td>10 individuales</td><td>0,7 km</td><td>9,0 (820)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://www.booking.com/hotel/al/tirana-harmony-villa.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">Tirana Sunny Bliss Villa</a></th>
+              <td>576 €</td><td>14 €</td><td>6 individuales, 2 dobles, 3 sofás cama</td><td>1,6 km</td><td>9,2 (812)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://www.booking.com/hotel/al/vila-kristal-tirana-apartments.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">Vila Kristal Tirana Apartments</a></th>
+              <td>440 €</td><td>11 €</td><td>4 individuales, 2 dobles, 3 sofás cama</td><td>1,7 km</td><td>9,4 (43)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://www.booking.com/hotel/al/center-oasis.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">Center Oasis Apartments</a></th>
+              <td>576 €</td><td>14 €</td><td>dobles, una litera y sofás cama</td><td>0,4 km</td><td>9,8 (633)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://www.booking.com/hotel/al/italia.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">Hotel Italia</a></th>
+              <td>560 €</td><td>14 €</td><td>2 estudios: individuales, litera y dobles</td><td>1,2 km</td><td>8,3 (232)</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://www.booking.com/hotel/al/haxhiu.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">Hotel Haxhiu</a></th>
+              <td>600 €</td><td>15 €</td><td>habitaciones triples y dobles</td><td>1,5 km</td><td>7,6 (470), con desayuno</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="https://www.booking.com/hotel/al/kutas-rooms.es.html?checkin=2026-12-13&amp;checkout=2026-12-17&amp;group_adults=10&amp;req_adults=10&amp;no_rooms=1&amp;group_children=0&amp;selected_currency=EUR" target="_blank" rel="noopener">Kuta's City Center</a></th>
+              <td>708 €</td><td>18 €</td><td>triples y cuádruple, con camas dobles</td><td>0,5 km</td><td>9,2 (245)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="it-small">Booking, 10 adultos del 13 al 17 de diciembre, solo alojamientos con parking y con una nota de 7 o más, el 28 de octubre de 2026. Los precios incluyen impuestos y cargos. Si prefieres un hotel, los de la lista sirven para 10 pero con camas dobles y cuestan más que los apartamentos.</p>
+    </section>
+
+    <section class="it-sec wrap" id="coste" aria-labelledby="t-coste">
+      <h2 class="section-title" id="t-coste">Cuánto cuesta</h2>
+      <p class="it-lead">El presupuesto por persona, con los mismos supuestos de la comparativa. Cambia los controles y se recalcula solo.</p>
+      <div class="it-calc">
+        <div class="it-calc__controls">
+          <div class="field">
+            <span class="field__label" id="c-lbl-people">Personas</span>
+            <div class="step" role="group" aria-labelledby="c-lbl-people">
+              <button type="button" id="c-minus" aria-label="Una persona menos">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>
+              </button>
+              <output id="c-people" aria-live="polite">10</output>
+              <button type="button" id="c-plus" aria-label="Una persona más">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+              </button>
+            </div>
+            <span class="field__help" id="c-people-help"></span>
+          </div>
+          <div class="field">
+            <span class="field__label" id="c-lbl-pace">Comida y salidas</span>
+            <div class="seg" role="radiogroup" aria-labelledby="c-lbl-pace" id="c-pace">
+              <button type="button" role="radio" data-pace="ajustado" aria-checked="true">Ajustado</button>
+              <button type="button" role="radio" data-pace="normal" aria-checked="false">Normal</button>
+            </div>
+          </div>
+          <div class="field field--switch">
+            <button type="button" class="switch" role="switch" aria-checked="true" id="c-bus">
+              <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
+              <span class="switch__text">Sumar el autobús a Charleroi</span>
+            </button>
+          </div>
+          <div class="field field--switch">
+            <button type="button" class="switch" role="switch" aria-checked="true" id="c-cover">
+              <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
+              <span class="switch__text">Seguro a todo riesgo (estimado)</span>
+            </button>
+          </div>
+          <div class="field field--switch">
+            <button type="button" class="switch" role="switch" aria-checked="false" id="c-dajti">
+              <span class="switch__track" aria-hidden="true"><span class="switch__knob"></span></span>
+              <span class="switch__text">Subir en la telecabina del Dajti</span>
+            </button>
+          </div>
+        </div>
+        <div class="it-calc__result" aria-live="polite">
+          <p class="trip__label">Viaje completo, estimado</p>
+          <p class="trip__num"><b id="c-total">270 €</b><span> por persona</span></p>
+          <p class="trip__group" id="c-group"></p>
+          <dl class="costs" id="c-rows"></dl>
+          <p class="costs__note" id="c-vs"></p>
+        </div>
+      </div>
+      <p class="it-small">Entradas con precios de guías y webs, sin descuento de estudiante (no encontré ninguno). Si alguna cambia, solo hay que tocar los números de <code>itinerario.js</code>.</p>
+    </section>
+
+    <section class="it-sec wrap" id="planb" aria-labelledby="t-b">
+      <h2 class="section-title" id="t-b">Plan B</h2>
+      <ul class="it-grid">
+        <li class="it-card">
+          <h3>Si llueve o estáis hechos polvo</h3>
+          <p>Durrës es media jornada y está a 50 minutos. En la propia Tirana, la Casa de las Hojas, los cafés de Blloku y, con cielo claro, el Grand Park. El lago Bovilla queda a 35 o 45 minutos, pero en diciembre puede estar en la niebla.</p>
+        </li>
+        <li class="it-card">
+          <h3>Si os sobra un día</h3>
+          <p>Ryanair también vuela de Charleroi a Tirana el 13 y vuelve el viernes 18 por <b>32 €</b> (despegue a las 20:10, aterrizaje a las 22:50). El día extra sirve para Gjirokastër y el Ojo Azul: unos 230 km y de 3 a 3 h 30 por trayecto, con salida de noche y vuelta de noche. Es largo, y dormir allí es mejor.</p>
+        </li>
+        <li class="it-card">
+          <h3>Lo que no va en diciembre</h3>
+          <p>Las playas de Ksamil y la Riviera son de mayo a septiembre. Theth y Valbona, la alta montaña, no caben en un día, y Komani requiere un día entero con barco. El Museo Histórico Nacional está cerrado hasta 2028.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="it-sec wrap" id="antes" aria-labelledby="t-antes">
+      <h2 class="section-title" id="t-antes">Antes de ir</h2>
+      <ul class="it-check">
+        <li><b>DNI en vigor</b> con al menos 3 meses de validez. La embajada recomienda llevar también el pasaporte (<a href="https://www.exteriores.gob.es/Embajadas/tirana/es/ViajarA/Paginas/Recomendaciones-de-viaje.aspx" target="_blank" rel="noopener">recomendaciones de viaje</a>).</li>
+        <li><b>Carnet de conducir</b> de los 4 conductores y una <b>tarjeta de crédito</b> con 400 € libres por coche para la fianza.</li>
+        <li><b>Efectivo:</b> 698 € en euros para el piso (648 € más la fianza de 50 €) y lek para las entradas. En Krujë, los kioscos de los museos no aceptan tarjeta ni euros según una guía.</li>
+        <li><b>Móvil:</b> Albania no entra en el roaming gratuito de la UE. Mira el precio de tu operadora o compra una eSIM (<a href="https://www.viajaresim.com/blog/?p=232" target="_blank" rel="noopener">guía</a>). Descarga los mapas sin conexión.</li>
+        <li><b>Ropa de lluvia y buen calzado:</b> unos 13 grados de día y 5 de noche, con lluvia casi la mitad de los días. Las calles de Krujë y Berat son de piedra.</li>
+        <li><b>Seguro de viaje</b> y la hora del autobús Charleroi a Lille del jueves 17.</li>
+        <li>Los enchufes son europeos, como en España.</li>
+      </ul>
+    </section>
+
+    <section class="it-sec it-sec--last wrap" id="fuentes" aria-labelledby="t-fuentes">
+      <h2 class="section-title" id="t-fuentes">Fuentes</h2>
+      <p class="it-lead">Precios y horarios consultados el 28 de octubre de 2026. Cambian: confírmalos antes de reservar.</p>
+      <ul class="it-sources">
+        <li><a href="https://www.chasingthedonkey.com/a-weekend-in-tirana-in-48-hours/" target="_blank" rel="noopener">Chasing the Donkey: 2 días en Tirana</a></li>
+        <li><a href="https://www.travellingking.com/48-hours-in-tirana-2-day-itinerary/" target="_blank" rel="noopener">Travelling King: 48 horas en Tirana</a></li>
+        <li><a href="https://www.lonelyplanet.com/articles/48-hours-in-tirana" target="_blank" rel="noopener">Lonely Planet: 48 horas en Tirana</a></li>
+        <li><a href="https://www.albania-spirit.com/guides/day-trips-from-tirana/" target="_blank" rel="noopener">Albania Spirit: excursiones desde Tirana</a></li>
+        <li><a href="https://www.goatsontheroad.com/day-trips-from-tirana/" target="_blank" rel="noopener">Goats on the Road: excursiones desde Tirana</a></li>
+        <li><a href="https://adventurealbania.com/renting-a-car-in-albania/" target="_blank" rel="noopener">Adventure Albania: alquilar un coche</a></li>
+        <li><a href="https://www.kayak.es/cars/Tirana-Rinas-Airport-TIA/2026-12-13-10h/2026-12-17-7h?sort=price_a" target="_blank" rel="noopener">Kayak: coches en el aeropuerto de Tirana</a></li>
+        <li><a href="https://www.discovercars.com/albania/tirana/tia" target="_blank" rel="noopener">Discover Cars: Tirana, aeropuerto</a></li>
+        <li><a href="https://www.autoeurope.com/car-rental-albania" target="_blank" rel="noopener">Auto Europe: alquilar en Albania</a></li>
+        <li><a href="https://www.triplinkhub.com/en/blog/albania-driving-rules-fines-police" target="_blank" rel="noopener">TripLinkHub: normas de tráfico y multas</a></li>
+        <li><a href="https://www.avis.com/en/locations/al/tirana/tia" target="_blank" rel="noopener">Avis: oficina del aeropuerto de Tirana</a></li>
+        <li><a href="https://takecars.com/blog/tirana-parking/" target="_blank" rel="noopener">TakeCars: aparcar en Tirana</a></li>
+        <li><a href="https://www.exchange-rates.org/exchange-rate-history/all-eur-2026-10-01" target="_blank" rel="noopener">Exchange-rates.org: lek por euro</a></li>
+        <li><a href="https://dajtiekspres.com/rates-and-opening-hours/" target="_blank" rel="noopener">Dajti Ekspres: horarios</a></li>
+        <li><a href="https://bunkart.al/2/slider/new-visiting-hours-of-bunkart-1-winter-season" target="_blank" rel="noopener">Bunk'Art: horarios de invierno</a></li>
+        <li><a href="https://euronews.al/en/?p=67413" target="_blank" rel="noopener">Euronews Albania: cierre del Museo Histórico Nacional</a></li>
+        <li><a href="https://albania.al/activity/culture/skanderbeg-national-museum-in-kruja" target="_blank" rel="noopener">albania.al: museo Skanderbeg</a></li>
+        <li><a href="https://himara.net/blog/berat-castle" target="_blank" rel="noopener">Himara: castillo y museo Onufri de Berat</a></li>
+        <li><a href="https://www.albania-spirit.com/guides/best-restaurants-berat/" target="_blank" rel="noopener">Albania Spirit: restaurantes de Berat</a></li>
+        <li><a href="https://wanderlog.com/list/geoCategory/1588877/top-things-to-do-and-attractions-in-shkoder" target="_blank" rel="noopener">Wanderlog: qué ver en Shkodër</a></li>
+        <li><a href="https://albaniavisit.com/attractions/durres-amphitheatre/" target="_blank" rel="noopener">Albania Visit: anfiteatro de Durrës</a></li>
+        <li><a href="https://ultimatechristmasmarkets.com/albania/tirana-christmas-market/" target="_blank" rel="noopener">Ultimate Christmas Markets: Tirana</a></li>
+        <li><a href="https://www.exteriores.gob.es/Embajadas/tirana/es/ViajarA/Paginas/Recomendaciones-de-viaje.aspx" target="_blank" rel="noopener">Exteriores: recomendaciones de viaje a Albania</a></li>
+        <li><a href="https://www.viajaresim.com/blog/?p=232" target="_blank" rel="noopener">ViajarEsim: internet en Albania</a></li>
+        <li><a href="https://www.booking.com/hotel/al/rei-apartaments-tirana.es.html" target="_blank" rel="noopener">Booking: La Gioia Apartment</a></li>
+      </ul>
+      <p class="it-small">Fotos de Wikimedia Commons con licencia libre: Pudelek (CC BY-SA 4.0), BBB2021 (CC BY-SA 4.0), StepWorld (CC BY-SA 4.0) y Tobias Klenze (CC BY 3.0). Cada foto enlaza a su página.</p>
+      <p><a class="it-back" href="index.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        Volver al comparador de vuelos</a></p>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="itinerario.js"></script>
+</body>
+</html>

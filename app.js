@@ -55,7 +55,8 @@
     cloud: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 9.6 4.2 4.2 0 0 0 7 18z"/></svg>',
     snow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg>',
     plane: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>',
-    out: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>'
+    out: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
   };
 
   const ART = {
@@ -262,6 +263,9 @@
         "<li>" + ICON[m.sky] + "<span>" + minus(m.hi) + "° de día y " + minus(m.lo) + "° de noche<small>" + m.skyText + "</small></span></li>" +
         "</ul>" +
         '<p class="poster__vibe">' + m.vibe + "</p>" +
+        (m.plan
+          ? '<a class="poster__plan" href="' + m.plan + '">Itinerario de 5 días con coche' + ICON.arrow + "</a>"
+          : "") +
         '<div class="poster__slot" data-slot="ticket"></div>' +
         '<div class="poster__slot" data-slot="more"></div>' +
         "</article>"
